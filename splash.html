@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <meta name="description" content="SundaySoul: Loading your mindfulness journey powered by Pi Network." />
+    <meta name="keywords" content="SundaySoul, mindfulness, mental health, Pi Network, meditation" />
+    <meta name="author" content="SundaySoul Team" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="theme-color" content="#5DADE2" />
+    <meta property="og:title" content="SundaySoul - Loading Your Peace" />
+    <meta property="og:description" content="Mindfulness and mental health support with Pi Network." />
+    <meta property="og:image" content="/sundaysoul-logo.jpg" />
+    <meta property="og:url" content="https://sundaysoul.app" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <link rel="manifest" href="/manifest.json" />
+    <link rel="icon" href="/favicon.ico" type="image/x-icon" />
+    <link rel="apple-touch-icon" href="/icon-192.png" />
+    <title>SundaySoul - Loading Your Peace</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Poppins:wght@600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" media="print" onload="this.media='all'" />
+    <style>
+        :root {
+            --primary: #5DADE2; /* Softer Blue */
+            --secondary: #8E44AD; /* Calming Purple */
+            --gradient: linear-gradient(45deg, #5DADE2, #8E44AD);
+            --gold-gradient: linear-gradient(45deg, #FFD700, #FFA500); /* Gold for Lifetime */
+            --text: #2C3E50; /* Darker Blue-Gray */
+            --background: #F7FBFF; /* Softer Off-White */
+            --card-bg: #E8F0FE; /* Pale Blue */
+            --hover-bg: #D6EAF8; /* Light Blue Hover */
+            --shadow: 0 6px 14px rgba(0, 0, 0, 0.08);
+            --error: #FF7675; /* Soft Red */
+        }
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--background);
+            color: var(--text);
+            line-height: 1.7;
+            overflow: hidden;
+            -webkit-tap-highlight-color: transparent;
+            overscroll-behavior: none;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            margin: 0;
+        }
+        @media (prefers-reduced-motion: reduce) {
+            *, *:before, *:after {
+                transition: none !important;
+                animation: none !important;
+            }
+        }
+        @media (forced-colors: active) {
+            .splash-container {
+                border: 1px solid CanvasText;
+            }
+        }
+        .skip-link {
+            position: absolute;
+            top: -100px;
+            left: 1rem;
+            background: var(--primary);
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            z-index: 1002;
+            transition: top 0.3s ease;
+        }
+        .skip-link:focus {
+            top: 1rem;
+        }
+        .splash-container {
+            background: var(--card-bg);
+            padding: 2rem;
+            border-radius: 20px;
+            box-shadow: var(--shadow);
+            text-align: center;
+            max-width: 400px;
+            width: 90%;
+            animation: fadeIn 0.6s ease-out;
+        }
+        .logo {
+            font-family: 'Poppins', sans-serif;
+            font-size: clamp(2rem, 5vw, 2.5rem);
+            font-weight: 700;
+            color: var(--primary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1rem;
+        }
+        .logo-icon {
+            margin-right: 8px;
+            color: var(--primary);
+            font-size: 2rem;
+            animation: pulse 2s infinite ease-in-out;
+        }
+        .splash-message {
+            font-size: clamp(1rem, 2.5vw, 1.2rem);
+            color: var(--text);
+            opacity: 0.85;
+            margin-bottom: 1.5rem;
+            min-height: 3rem;
+        }
+        .spinner {
+            width: 40px;
+            height: 40px;
+            border: 4px solid var(--primary);
+            border-top: 4px solid transparent;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            margin: 0 auto 1rem;
+        }
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+            100% { transform: scale(1); }
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        @media (max-width: 480px) {
+            .splash-container {
+                padding: 1.5rem;
+            }
+            .logo {
+                font-size: 1.8rem;
+            }
+            .logo-icon {
+                font-size: 1.8rem;
+            }
+            .splash-message {
+                font-size: 0.9rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <a href="index.html" class="skip-link">Skip to Main App</a>
+    <div class="splash-container">
+        <div class="logo">
+            <i class="fas fa-heart logo-icon"></i> SundaySoul
+        </div>
+        <p class="splash-message" id="fun-fact" aria-live="polite">Loading your fun fact...</p>
+        <div class="spinner"></div>
+    </div>
+    <script>
+        // Array of fun facts related to mental health, mindfulness, and loneliness
+        const funFacts = [
+            "Fun fact: People feeling lonely often need a hug!",
+            "Fun fact: Smiling, even when forced, can lift your mood!",
+            "Fun fact: A 5-minute meditation can reduce stress instantly!",
+            "Fun fact: Listening to music can ease anxiety in minutes!",
+            "Fun fact: Deep breathing lowers your heart rate and calms your mind!",
+            "Fun fact: Sharing a kind word can spark someone’s hope!",
+            "Fun fact: Nature walks boost your mood and creativity!",
+            "Fun fact: Journaling daily helps process emotions better!",
+            "Fun fact: A good night’s sleep improves emotional resilience!",
+            "Fun fact: Connecting with others reduces feelings of loneliness!",
+            "Fun fact: Gratitude lists can shift your mindset to joy!",
+            "Fun fact: Laughter releases feel-good chemicals in your brain!"
+        ];
+
+        // Display a random fun fact
+        function displayFunFact() {
+            // Check if a fact is stored in sessionStorage
+            let fact = sessionStorage.getItem('currentFunFact');
+            if (!fact) {
+                // Select a new random fact
+                fact = funFacts[Math.floor(Math.random() * funFacts.length)];
+                sessionStorage.setItem('currentFunFact', fact);
+            }
+            document.getElementById('fun-fact').textContent = fact;
+        }
+
+        // Call on page load
+        displayFunFact();
+
+        // Redirect to index.html after 3 seconds
+        setTimeout(() => {
+            window.location.href = 'index.html';
+        }, 3000);
+
+        // Google Analytics for splash page
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'UA-XXXXX-X');
+        gtag('event', 'view', { event_category: 'Splash Page', event_label: 'Splash Load' });
+    </script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-XXXXX-X"></script>
+</body>
+</html>
