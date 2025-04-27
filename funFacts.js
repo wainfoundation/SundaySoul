@@ -32,51 +32,45 @@ const funFacts = [
     "Fun fact: Coloring or doodling can lower cortisol levels!"
 ];
 
-// Remove duplicates by converting to Set and back to array
 const uniqueFunFacts = [...new Set(funFacts)];
 
-function displayFunFact(elementId, options = { forceNew: false }) {
+function displayFunFact(elementId, options = { interval: 0 }) {
     try {
-        // Validate element
         const element = document.getElementById(elementId);
         if (!element) {
             console.error(`Element with ID "${elementId}" not found.`);
             return;
         }
 
-        // Check sessionStorage availability
-        let fact;
-        if (options.forceNew || !isSessionStorageAvailable()) {
-            fact = uniqueFunFacts[Math.floor(Math.random() * uniqueFunFacts.length)];
-            if (isSessionStorageAvailable()) {
-                sessionStorage.setItem('currentFunFact', fact);
-            }
-        } else {
-            fact = sessionStorage.getItem('currentFunFact');
-            if (!fact) {
-                fact = uniqueFunFacts[Math.floor(Math.random() * uniqueFunFacts.length)];
-                sessionStorage.setItem('currentFunFact', fact);
-            }
+        // Function to show a new random fact
+        const showNewFact = () => {
+            const fact = uniqueFunFacts[Math.floor(Math.random() * uniqueFunFacts.length)];
+            element.textContent = fact;
+            element.setAttribute('aria-live', 'polite');
+        };
+
+        // Show initial fact
+        showNewFact();
+
+        // Set up interval if specified (in milliseconds)
+        let intervalId = null;
+        if (options.interval > 0) {
+            intervalId = setInterval(showNewFact, options.interval);
         }
 
-        // Update element with accessibility in mind
-        element.textContent = fact;
-        element.setAttribute('aria-live', 'polite');
+        // Return intervalId for cleanup if needed
+        return intervalId;
     } catch (error) {
         console.error('Error in displayFunFact:', error);
+        return null;
     }
 }
 
-// Helper function to check sessionStorage availability
-function isSessionStorageAvailable() {
-    try {
-        const testKey = '__test__';
-        sessionStorage.setItem(testKey, testKey);
-        sessionStorage.removeItem(testKey);
-        return true;
-    } catch (e) {
-        return false;
+// Function to stop cycling (for cleanup or manual control)
+function stopFunFactCycle(intervalId) {
+    if (intervalId) {
+        clearInterval(intervalId);
     }
 }
 
-export { displayFunFact };
+export { displayFunFact, stopFunFactCycle };
