@@ -3,6 +3,12 @@
 [![Build Status](https://img.shields.io/badge/build-passing-brightgreen.svg)]()  
 [![Made with Love](https://img.shields.io/badge/made%20with-love-ff69b4.svg)]()  
 [![SundaySoul](https://img.shields.io/badge/Inspired%20by-Faith%20and%20Hope-blueviolet.svg)]()
+[![Pi Network Trusted](https://img.shields.io/badge/Trusted%20on-Pi%20Network-purple.svg?logo=pi-hole)](https://minepi.com/)
+
+[![Verified on Pi Network](https://img.shields.io/badge/Verified_on-Pi_Network-purple?style=for-the-badge&logo=pi-hole)](https://minepi.com/)
+[![Built for Pi Network](https://img.shields.io/badge/Built_for-Pi_Network-purple?style=for-the-badge&logo=pi-hole)](https://minepi.com/)
+
+
 
 > **SundaySoul** is a mental wellness app that brings daily inspiration, peace, and hope to your soul — every single day.
 
