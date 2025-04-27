@@ -1,38 +1,38 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
-    <meta name="description" content="SundaySoul: Your mindfulness app powered by Pi Network. Find peace with guided meditations, sleep stories, and support for mental wellness." />
-    <meta name="keywords" content="SundaySoul, mindfulness, mental health, Pi Network, meditation, anxiety, depression, sleep" />
-    <meta name="author" content="SundaySoul Team" />
-    <meta name="apple-mobile-web-app-capable" content="yes" />
-    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
-    <meta name="theme-color" content="#5DADE2" />
-    <meta property="og:title" content="SundaySoul - Your Path to Peace" />
-    <meta property="og:description" content="Mindfulness and mental health support with Pi Network." />
-    <meta property="og:image" content="/sundaysoul-logo.jpg" />
-    <meta property="og:url" content="https://sundaysoul.app" />
-    <meta name="twitter:card" content="summary_large_image" />
-    <link rel="manifest" href="/manifest.json" />
-    <link rel="icon" href="/favicon.ico" type="image/x-icon" />
-    <link rel="apple-touch-icon" href="/icon-192.png" />
-    <title>SundaySoul - Your Path to Peace</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <meta name="description" content="SundaySoul: Your mindfulness platform for meditation, sleep stories, and mental wellness, powered by Pi Network.">
+    <meta name="keywords" content="SundaySoul, mindfulness, meditation, sleep stories, Pi Network, mental wellness">
+    <meta name="author" content="SundaySoul Team">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="theme-color" content="#5DADE2">
+    <meta property="og:title" content="SundaySoul - Mindfulness & Mental Wellness">
+    <meta property="og:description" content="Discover mindfulness with SundaySoul’s meditation, sleep stories, and Ebb AI, paid via Pi Network.">
+    <meta property="og:image" content="/sundaysoul-logo.jpg">
+    <meta property="og:url" content="https://sundaysoul.app">
+    <meta name="twitter:card" content="summary_large_image">
+    <link rel="manifest" href="/manifest.json">
+    <link rel="icon" href="/favicon.ico" type="image/x-icon">
+    <link rel="apple-touch-icon" href="/icon-192.png">
+    <title>SundaySoul | Mindfulness & Mental Wellness</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Poppins:wght@600;700&display=swap" rel="stylesheet" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" media="print" onload="this.media='all'" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Poppins:wght@600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" media="print" onload="this.media='all'">
     <style>
         :root {
-            --primary: #5DADE2; /* Softer Blue */
-            --secondary: #8E44AD; /* Calming Purple */
+            --primary: #5DADE2;
+            --secondary: #8E44AD;
             --gradient: linear-gradient(45deg, #5DADE2, #8E44AD);
-            --gold-gradient: linear-gradient(45deg, #FFD700, #FFA500); /* Gold for Lifetime */
-            --text: #2C3E50; /* Darker Blue-Gray */
-            --background: #F7FBFF; /* Softer Off-White */
-            --card-bg: #E8F0FE; /* Pale Blue */
-            --hover-bg: #D6EAF8; /* Light Blue Hover */
+            --gold-gradient: linear-gradient(45deg, #FFD700, #FFA500);
+            --text: #2C3E50;
+            --background: #F7FBFF;
+            --card-bg: #E8F0FE;
+            --hover-bg: #D6EAF8;
             --shadow: 0 6px 14px rgba(0, 0, 0, 0.08);
-            --error: #FF7675; /* Soft Red */
+            --error: #FF7675;
         }
         body {
             font-family: 'Inter', sans-serif;
@@ -178,95 +178,6 @@
             color: var(--text);
             opacity: 0.8;
         }
-        .card {
-            background: var(--card-bg);
-            padding: 2rem;
-            border-radius: 20px;
-            box-shadow: var(--shadow);
-            width: 100%;
-            max-width: clamp(300px, 90%, 600px);
-            margin: 0 auto 1rem;
-            text-align: left;
-            transition: transform 0.3s ease, box-shadow 0.3s ease, opacity 0.5s ease;
-            opacity: 0;
-        }
-        .card.reveal {
-            opacity: 1;
-            transform: translateY(0);
-        }
-        .card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 8px 18px rgba(0, 0, 0, 0.1);
-        }
-        .card h3 {
-            font-family: 'Poppins', sans-serif;
-            font-size: 1.3rem;
-            margin-bottom: 0.5rem;
-            color: var(--primary);
-        }
-        .card p {
-            font-size: 0.95rem;
-            color: var(--text);
-        }
-        .btn {
-            padding: 0.9rem 2rem;
-            border-radius: 30px;
-            text-decoration: none;
-            font-weight: 600;
-            font-size: 1rem;
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            background: var(--gradient);
-            color: white;
-            box-shadow: 0 4px 14px rgba(0, 0, 0, 0.15);
-            transition: transform 0.3s ease, background 0.3s ease, box-shadow 0.3s ease, rotate 0.3s ease;
-            position: relative;
-            overflow: hidden;
-        }
-        .btn::before {
-            content: '';
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            width: 0;
-            height: 0;
-            background: rgba(255, 255, 255, 0.3);
-            border-radius: 50%;
-            transform: translate(-50%, -50%);
-            transition: width 0.4s ease, height 0.4s ease;
-        }
-        .btn:hover::before {
-            width: 300px;
-            height: 300px;
-        }
-        .btn:hover {
-            transform: scale(1.1) rotate(2deg);
-            background: var(--primary);
-            box-shadow: 0 6px 18px rgba(93, 173, 226, 0.4);
-        }
-        .btn:focus {
-            outline: 3px solid var(--secondary);
-            outline-offset: 3px;
-            box-shadow: 0 0 0 5px rgba(142, 68, 173, 0.3);
-        }
-        .btn.pulse {
-            animation: pulse 2s infinite ease-in-out;
-        }
-        .btn--lifetime {
-            background: var(--gold-gradient);
-            font-size: 1.1rem;
-            padding: 1rem 2.2rem;
-        }
-        .btn--lifetime:hover {
-            transform: scale(1.12) rotate(3deg);
-            box-shadow: 0 8px 20px rgba(255, 215, 0, 0.5);
-        }
-        @keyframes pulse {
-            0% { transform: scale(1); }
-            50% { transform: scale(1.06); }
-            100% { transform: scale(1); }
-        }
         .fade-in {
             animation: fadeIn 0.6s ease-out;
         }
@@ -317,36 +228,41 @@
             max-width: 600px;
             margin: 0 auto 1.5rem;
         }
-        .video-container {
-            position: relative;
-            padding-bottom: 56.25%;
-            height: 0;
-            overflow: hidden;
-            max-width: 600px;
-            margin: 1.5rem auto;
+        .fun-fact-card {
+            background: var(--card-bg);
+            padding: 1rem;
             border-radius: 12px;
             box-shadow: var(--shadow);
-        }
-        .video-container video {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-        .video-fallback {
-            display: none;
+            max-width: 600px;
+            margin: 1.5rem auto;
             text-align: center;
-            color: var(--error);
-            font-size: 0.9rem;
-            margin-top: 1rem;
+            animation: fadeIn 0.6s ease-out;
         }
-        .pioneer-counter {
-            font-family: 'Poppins', sans-serif;
-            font-size: 1.2rem;
-            color: var(--primary);
-            margin-top: 1rem;
+        .fun-fact-card p {
+            font-size: clamp(0.95rem, 2vw, 1rem);
+            color: var(--text);
+            opacity: 0.85;
+        }
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0.75rem 1.5rem;
+            border: none;
+            border-radius: 24px;
+            background: var(--gradient);
+            color: white;
+            font-size: 1rem;
+            font-weight: 500;
+            text-decoration: none;
+            transition: transform 0.3s ease, background 0.3s ease, box-shadow 0.3s ease;
+            cursor: pointer;
+        }
+        .btn:hover,
+        .btn:focus {
+            background: var(--primary);
+            transform: scale(1.05);
+            box-shadow: 0 4px 12px rgba(93, 173, 226, 0.3);
         }
         .error-message {
             background: var(--error);
@@ -359,53 +275,49 @@
             font-size: 0.9rem;
             max-width: 90%;
         }
-        .faq-container {
-            max-width: clamp(300px, 90%, 600px);
-            margin: 0 auto;
+        .stories-grid, .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 0 1rem;
+        }
+        .card {
+            background: var(--card-bg);
+            padding: 1.5rem;
+            border-radius: 20px;
+            box-shadow: var(--shadow);
             text-align: left;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
-        .faq-item {
-            margin: 0.5rem 0;
-            border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
         }
-        .faq-question {
+        .card h3 {
             font-family: 'Poppins', sans-serif;
-            font-size: 1.1rem;
-            color: var(--text);
-            cursor: pointer;
-            padding: 0.8rem 0;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            transition: color 0.3s ease;
-        }
-        .faq-question::after {
-            content: '\f078';
-            font-family: 'Font Awesome 6 Free';
-            font-weight: 900;
+            font-size: 1.3rem;
             color: var(--primary);
+            margin-bottom: 0.5rem;
         }
-        .faq-question.active::after {
-            content: '\f077';
-        }
-        .faq-answer {
-            max-height: 0;
-            overflow: hidden;
-            transition: max-height 0.3s ease-out;
+        .card p {
             font-size: 0.9rem;
             color: var(--text);
             opacity: 0.8;
         }
-        .faq-answer.active {
-            max-height: 200px;
-            padding: 0.8rem 0;
+        .card i {
+            font-size: 1.5rem;
+            color: var(--secondary);
+            margin-bottom: 0.5rem;
         }
-        .story-img {
-            width: 100%;
-            height: 200px;
-            object-fit: cover;
-            border-radius: 12px;
-            margin-bottom: 1rem;
+        .cta-section {
+            background: var(--card-bg);
+            padding: 3rem 1rem;
+            text-align: center;
+        }
+        .cta-section .btn {
+            margin-top: 1rem;
         }
         footer {
             background: var(--card-bg);
@@ -495,13 +407,6 @@
             font-size: 0.85rem;
             opacity: 0.8;
         }
-        .plans-grid, .stories-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 1rem;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
         @media (max-width: 768px) {
             .nav-menu {
                 display: none;
@@ -523,11 +428,11 @@
             .section {
                 padding: 3rem 0.5rem 1.5rem;
             }
-            .card {
-                max-width: 95%;
-            }
             .hero-section::before {
                 opacity: 0.03;
+            }
+            .stories-grid, .features-grid {
+                grid-template-columns: 1fr;
             }
             .footer-container {
                 grid-template-columns: 1fr;
@@ -540,29 +445,13 @@
             .hero-content h1 {
                 font-size: 2rem;
             }
-            .btn {
-                padding: 0.7rem 1.5rem;
+            .fun-fact-card p {
                 font-size: 0.9rem;
-            }
-            .btn--lifetime {
-                padding: 0.8rem 1.8rem;
-                font-size: 1rem;
-            }
-            .story-img {
-                height: 150px;
             }
         }
         @media (min-width: 769px) {
             .section {
                 padding: 5rem 2rem 3rem;
-            }
-            .card {
-                max-width: 800px;
-            }
-            .features-grid, .plans-grid, .stories-grid, .testimonials-grid {
-                display: grid;
-                grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-                gap: 1rem;
             }
         }
         @supports (-webkit-touch-callout: none) {
@@ -573,7 +462,10 @@
     </style>
 </head>
 <body class="flex flex-col min-h-screen">
+    <!-- Skip Link -->
     <a href="#main-content" class="skip-link">Skip to Content</a>
+
+    <!-- App Bar -->
     <header class="app-bar">
         <div class="logo">
             <i class="fas fa-heart logo-icon"></i> SundaySoul
@@ -581,7 +473,7 @@
         <nav class="nav-menu">
             <a href="#stories">Stories</a>
             <a href="#features">Features</a>
-            <a href="#plans">Plans</a>
+            <a href="plans.html">Plans</a>
             <a href="#pi-signin" class="pi-signin">Sign in with Pi</a>
             <select class="language-switcher" aria-label="Select language" onchange="switchLanguage(this.value)">
                 <option value="en">English</option>
@@ -590,349 +482,149 @@
         </nav>
         <button class="hamburger" aria-label="Toggle menu"><i class="fas fa-bars"></i></button>
     </header>
+
+    <!-- Error Message -->
     <div id="error-message" class="error-message"></div>
+
+    <!-- Main Content -->
     <main class="flex-1" id="main-content">
+        <!-- Hero Section -->
         <section class="hero-section">
             <div class="hero-content fade-in">
-                <h1>You’re Not Alone. Find Peace with SundaySoul.</h1>
-                <p class="subtitle">Overcome stress, anxiety, and sleepless nights with guided meditations, AI support, and a supportive Pi community.</p>
-                <div class="video-container">
-                    <video poster="/mindfulness-poster.webp" controls aria-label="SundaySoul mindfulness teaser video">
-                        <source src="/mindfulness-teaser.mp4" type="video/mp4" />
-                        <source src="/mindfulness-teaser.webm" type="video/webm" />
-                        Your browser does not support the video tag.
-                    </video>
+                <h1>Find Your Inner Peace</h1>
+                <p class="subtitle">Join SundaySoul for guided meditations, sleep stories, and Ebb AI sessions, all powered by Pi Network.</p>
+                <div class="fun-fact-card">
+                    <p id="fun-fact" aria-live="polite">Loading your fun fact...</p>
                 </div>
-                <p class="video-fallback">Video unavailable. Please try again later.</p>
-                <div class="flex flex-col sm:flex-row gap-4 justify-center mt-4">
-                    <a href="#pi-signin" class="btn pulse flex items-center justify-center" aria-label="Get started with Pi Network">
-                        <i class="fas fa-coins mr-2"></i> Start Your Journey
-                    </a>
-                    <a href="#quiz" class="btn flex items-center justify-center" aria-label="Take mental health quiz">
-                        <i class="fas fa-question-circle mr-2"></i> Take Our Quiz
-                    </a>
-                </div>
-                <p class="pioneer-counter">Join <span id="pioneer-count">10,000</span> Pi Pioneers finding peace!</p>
-            </div>
-        </section>
-        <section id="stories" class="section bg-[var(--card-bg)]">
-            <h2>Stories of Hope and Healing</h2>
-            <p class="subtitle">See how SundaySoul helps users like you overcome mental health challenges.</p>
-            <div class="stories-grid">
-                <div class="card reveal">
-                    <img src="/story1.webp" alt="Emma’s story" class="story-img" loading="lazy" />
-                    <h3>Emma’s Anxiety Relief</h3>
-                    <p><strong>Problem:</strong> Emma struggled with daily anxiety, feeling overwhelmed by work and life.</p>
-                    <p><strong>Solution:</strong> SundaySoul’s guided meditations for anxiety and Ebb AI’s mood support helped her find calm.</p>
-                    <p><strong>Outcome:</strong> “I feel in control again. The community’s support is like a warm hug!”</p>
-                </div>
-                <div class="card reveal">
-                    <img src="/story2.webp" alt="Liam’s depression journey" class="story-img" loading="lazy" />
-                    <h3>Liam’s Depression Journey</h3>
-                    <p><strong>Problem:</strong> Liam faced depression, struggling to find motivation or joy.</p>
-                    <p><strong>Solution:</strong> Daily mood tracking and personalized meditations lifted his spirits.</p>
-                    <p><strong>Outcome:</strong> “SundaySoul gave me tools to rebuild my hope, one step at a time.”</p>
-                </div>
-                <div class="card reveal">
-                    <img src="/story3.webp" alt="Sophia’s sleep struggles" class="story-img" loading="lazy" />
-                    <h3>Sophia’s Sleep Struggles</h3>
-                    <p><strong>Problem:</strong> Sophia’s insomnia kept her awake, worsening her stress.</p>
-                    <p><strong>Solution:</strong> Sleep stories and calming sounds helped her relax and rest.</p>
-                    <p><strong>Outcome:</strong> “I finally sleep through the night. It’s life-changing!”</p>
-                </div>
-            </div>
-        </section>
-        <section id="features" class="section">
-            <h2>Tools for Your Mental Wellness</h2>
-            <p class="subtitle">Discover how SundaySoul supports your mind and heart.</p>
-            <div class="features-grid">
-                <div class="card reveal flex items-center">
-                    <i class="fas fa-spa text-[var(--primary)] text-2xl mr-3"></i>
-                    <div class="flex-1">
-                        <h3>Guided Meditations</h3>
-                        <p>Tailored sessions for anxiety, stress, or focus, available anytime.</p>
-                    </div>
-                </div>
-                <div class="card reveal flex items-center">
-                    <i class="fas fa-moon text-[var(--primary)] text-2xl mr-3"></i>
-                    <div class="flex-1">
-                        <h3>Sleep Stories</h3>
-                        <p>Soothing narratives and sounds to ease insomnia and promote rest.</p>
-                    </div>
-                </div>
-                <div class="card reveal flex items-center">
-                    <i class="fas fa-robot text-[var(--primary)] text-2xl mr-3"></i>
-                    <div class="flex-1">
-                        <h3>Ebb AI Companion</h3>
-                        <p>24/7 emotional support with personalized mood guidance.</p>
-                    </div>
-                </div>
-                <div class="card reveal flex items-center">
-                    <i class="fas fa-users text-[var(--primary)] text-2xl mr-3"></i>
-                    <div class="flex-1">
-                        <h3>Pi Community</h3>
-                        <p>Connect with others for support and earn Pi rewards.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-        <section id="plans" class="section bg-[var(--card-bg)]">
-            <div class="text-center bg-[var(--primary)] text-white py-2 px-4 mx-auto max-w-3xl rounded-xl mb-4">
-                <p>Lifetime Access for 99 Pi! Pay once, enjoy forever. Only a few spots left!</p>
-            </div>
-            <h2>Choose Your Path to Peace</h2>
-            <p class="subtitle">Find the plan that supports your mental wellness journey.</p>
-            <div class="plans-grid">
-                <!-- Free Plan -->
-                <div class="card reveal">
-                    <h3>Free</h3>
-                    <p>0 Pi</p>
-                    <p class="text-sm mt-1">Essential tools to start your mindfulness journey.</p>
-                    <ul class="text-sm text-[var(--text)] opacity-70 mt-2 space-y-1">
-                        <li>5 Guided Meditations (Anxiety & Stress)</li>
-                        <li>3 Sleep Stories for Restful Nights</li>
-                        <li>Basic Mood Tracking Journal</li>
-                        <li>Access to Weekly Community Events</li>
-                        <li>Pi Community Forum Access</li>
-                    </ul>
-                    <a href="#subscribe" class="btn mt-4" aria-label="Get started with Free plan">Get Started</a>
-                </div>
-                <!-- Standard Plan -->
-                <div class="card reveal">
-                    <h3>Standard</h3>
-                    <p>3 Pi/month</p>
-                    <p class="text-sm mt-1">Core tools for daily mental wellness.</p>
-                    <ul class="text-sm text-[var(--text)] opacity-70 mt-2 space-y-1">
-                        <li>Unlimited Meditations (Anxiety, Depression, Focus)</li>
-                        <li>Full Sleep Story Library (50+ Stories)</li>
-                        <li>Ebb AI Mood Assistant (3 sessions/day)</li>
-                        <li>Personalized Meditation Recommendations</li>
-                        <li>Offline Meditation Downloads</li>
-                        <li>Monthly Community Challenges with Pi Rewards</li>
-                        <li>Local Wellness Event Access</li>
-                    </ul>
-                    <a href="#subscribe" class="btn mt-4" aria-label="Choose Standard plan with Pi">
-                        <i class="fas fa-coins mr-2"></i> Choose Standard
-                    </a>
-                </div>
-                <!-- Premium Plan -->
-                <div class="card reveal">
-                    <h3>Premium</h3>
-                    <p>6 Pi/month</p>
-                    <p class="text-sm mt-1">Support for families and groups.</p>
-                    <ul class="text-sm text-[var(--text)] opacity-70 mt-2 space-y-1">
-                        <li>All Standard Features</li>
-                        <li>Family Wellness Dashboard (Up to 5 Users)</li>
-                        <li>Kids’ Meditation Mode (Ages 4-12)</li>
-                        <li>Guided Group Meditations for Families</li>
-                        <li>Family Progress Tracking (Mood & Goals)</li>
-                        <li>Private Group Community Chat</li>
-                        <li>Enhanced Privacy Controls</li>
-                    </ul>
-                    <a href="#subscribe" class="btn mt-4" aria-label="Choose Premium plan with Pi">
-                        <i class="fas fa-coins mr-2"></i> Choose Premium
-                    </a>
-                </div>
-                <!-- Pro Plan -->
-                <div class="card reveal">
-                    <h3>Pro</h3>
-                    <p>9 Pi/month</p>
-                    <p class="text-sm mt-1">Advanced tools for dedicated users.</p>
-                    <ul class="text-sm text-[var(--text)] opacity-70 mt-2 space-y-1">
-                        <li>All Premium Features</li>
-                        <li>Team Wellness Collaboration (Up to 10 Users)</li>
-                        <li>Business Tools (Pi Reward Tracker, Wellness Planner)</li>
-                        <li>Advanced Mindfulness Analytics (Streaks, Trends)</li>
-                        <li>Ebb AI Virtual Assistant (10 sessions/day)</li>
-                        <li>API Access for Pi Network Apps</li>
-                        <li>Priority Community Event Access</li>
-                    </ul>
-                    <a href="#subscribe" class="btn mt-4" aria-label="Choose Pro plan with Pi">
-                        <i class="fas fa-coins mr-2"></i> Choose Pro
-                    </a>
-                </div>
-                <!-- Lifetime Plan -->
-                <div class="card reveal relative">
-                    <span class="absolute -top-3 left-1/2 transform -translate-x-1/2 bg-[var(--secondary)] text-white text-xs font-semibold px-2 py-1 rounded-xl pulse">Limited Accounts!</span>
-                    <h3>Lifetime</h3>
-                    <p>99 Pi one-time</p>
-                    <p class="text-[var(--error)] text-sm mt-1">Only a few accounts left!</p>
-                    <ul class="text-sm text-[var(--text)] opacity-70 mt-2 space-y-1">
-                        <li>All Pro Features</li>
-                        <li>Lifetime Access – No Monthly Fees</li>
-                        <li>Priority Support (24/7 Chat)</li>
-                        <li>Early Access to New Features</li>
-                        <li>Exclusive Lifetime Badge <span class="text-[var(--primary)] cursor-help" title="Visible in community forums">ℹ️</span></li>
-                        <li>Monthly Expert Webinars (Mental Health Pros)</li>
-                        <li>Custom Ebb AI Voice Options</li>
-                        <li>Lifetime Pi Reward Boost (2x)</li>
-                        <li>Beta Tester for Future Apps</li>
-                        <li>Free Access to Future SundaySoul Products</li>
-                    </ul>
-                    <a href="#subscribe" class="btn btn--lifetime mt-4 flex items-center" aria-label="Get Lifetime plan with Pi">
-                        <i class="fas fa-crown mr-2"></i> Get Lifetime Now
-                    </a>
-                </div>
-            </div>
-            <div class="text-center mt-3 text-xs">
-                <a href="#refer" class="text-[var(--primary)] hover:underline flex items-center justify-center">
-                    <i class="fas fa-coins mr-1"></i> Refer & Earn 2 Pi
+                <a href="plans.html" class="btn" aria-label="Explore SundaySoul plans">
+                    <i class="fas fa-coins mr-2"></i> Explore Plans
                 </a>
             </div>
         </section>
-        <section id="community" class="section">
-            <h2>Connect with Our Pi Community</h2>
-            <p class="subtitle">Share your journey and find support with others.</p>
-            <div class="space-y-3">
-                <div class="card reveal">
-                    <h3>Anna’s Prayer</h3>
-                    <p class="mt-1">"The community helped me feel less alone in my anxiety."</p>
-                    <div class="flex space-x-4 mt-2">
-                        <button class="text-[var(--text)] text-xs flex items-center opacity-80">
-                            <i class="fas fa-heart mr-1"></i> 12
-                        </button>
-                        <button class="text-[var(--primary)] text-xs flex items-center">
-                            <i class="fas fa-coins mr-1"></i> Reward (0.1 Pi)
-                        </button>
-                    </div>
+
+        <!-- Stories Section -->
+        <section id="stories" class="section bg-[var(--background)]">
+            <h2>Stories of Mindfulness</h2>
+            <p class="subtitle">Hear how SundaySoul has transformed lives.</p>
+            <div class="stories-grid">
+                <div class="card">
+                    <i class="fas fa-heart"></i>
+                    <h3>Anna’s Journey</h3>
+                    <p>“SundaySoul’s meditations helped me find calm amidst chaos. The Pi Network payments make it so easy!”</p>
                 </div>
-                <div class="card reveal">
-                    <h3>John’s Reflection</h3>
-                    <p class="mt-1">"Meditating with Pi Pioneers gives me hope."</p>
-                    <div class="flex space-x-4 mt-2">
-                        <button class="text-[var(--text)] text-xs flex items-center opacity-80">
-                            <i class="fas fa-heart mr-1"></i> 8
-                        </button>
-                        <button class="text-[var(--primary)] text-xs flex items-center">
-                            <i class="fas fa-coins mr-1"></i> Reward (0.1 Pi)
-                        </button>
-                    </div>
+                <div class="card">
+                    <i class="fas fa-moon"></i>
+                    <h3>Mike’s Sleep Solution</h3>
+                    <p>“The sleep stories are a game-changer. I fall asleep faster and wake up refreshed.”</p>
+                </div>
+                <div class="card">
+                    <i class="fas fa-brain"></i>
+                    <h3>Sarah’s Clarity</h3>
+                    <p>“Ebb AI sessions guide me to focus and reduce stress. It’s like having a personal coach.”</p>
                 </div>
             </div>
         </section>
-        <section id="testimonials" class="section bg-[var(--card-bg)]">
-            <h2>What Our Community Says</h2>
-            <p class="subtitle">Hear from Pi Pioneers finding peace with SundaySoul.</p>
-            <div class="testimonials-grid">
-                <div class="card reveal text-center">
-                    <img src="/user1.webp" alt="Anna K." class="testimonial-img mx-auto" loading="lazy" />
-                    <h3>Anna K.</h3>
-                    <p class="text-xs opacity-70">Pi Pioneer</p>
-                    <p class="mt-2">"The anxiety meditations are my daily anchor."</p>
+
+        <!-- Features Section -->
+        <section id="features" class="section bg-[var(--card-bg)]">
+            <h2>Why SundaySoul?</h2>
+            <p class="subtitle">Discover features designed for your mental wellness.</p>
+            <div class="features-grid">
+                <div class="card">
+                    <i class="fas fa-pray"></i>
+                    <h3>Guided Meditations</h3>
+                    <p>Access hundreds of meditations tailored to stress, focus, and relaxation.</p>
                 </div>
-                <div class="card reveal text-center">
-                    <img src="/user2.webp" alt="Marcus T." class="testimonial-img mx-auto" loading="lazy" />
-                    <h3>Marcus T.</h3>
-                    <p class="text-xs opacity-70">Small Business Owner</p>
-                    <p class="mt-2">"Sleep stories help me rest despite my hectic schedule."</p>
+                <div class="card">
+                    <i class="fas fa-bed"></i>
+                    <h3>Sleep Stories</h3>
+                    <p>Drift off with calming stories and soothing sounds for better sleep.</p>
                 </div>
-                <div class="card reveal text-center">
-                    <img src="/user3.webp" alt="Sarah L." class="testimonial-img mx-auto" loading="lazy" />
-                    <h3>Sarah L.</h3>
-                    <p class="text-xs opacity-70">Lifetime Member</p>
-                    <p class="mt-2">"The Lifetime plan gives me peace of mind forever."</p>
+                <div class="card">
+                    <i class="fas fa-robot"></i>
+                    <h3>Ebb AI Sessions</h3>
+                    <p>Personalized AI-guided sessions to boost mindfulness and clarity.</p>
                 </div>
-            </div>
-        </section>
-        <section id="faq" class="section">
-            <h2>Frequently Asked Questions</h2>
-            <p class="subtitle">We’re here to help you start your journey.</p>
-            <div class="faq-container">
-                <div class="faq-item">
-                    <h3 class="faq-question">What is SundaySoul?</h3>
-                    <div class="faq-answer">
-                        <p>SundaySoul is a mindfulness app powered by Pi Network, offering meditations, sleep content, and AI support for mental wellness.</p>
-                    </div>
-                </div>
-                <div class="faq-item">
-                    <h3 class="faq-question">How does SundaySoul help with mental health?</h3>
-                    <div class="faq-answer">
-                        <p>Our guided meditations, sleep stories, and Ebb AI companion target anxiety, depression, and insomnia, with community support for connection.</p>
-                    </div>
-                </div>
-                <div class="faq-item">
-                    <h3 class="faq-question">Is the Free plan enough to start?</h3>
-                    <div class="faq-answer">
-                        <p>Yes! The Free plan includes meditations, mood tracking, and community access to support your mental health journey.</p>
-                    </div>
-                </div>
-                <div class="faq-item">
-                    <h3 class="faq-question">What’s the Lifetime plan?</h3>
-                    <div class="faq-answer">
-                        <p>For a one-time 99 Pi payment, get full access to all features forever, including exclusive mental health webinars and rewards.</p>
-                    </div>
+                <div class="card">
+                    <i class="fas fa-coins"></i>
+                    <h3>Pi Network Payments</h3>
+                    <p>Seamless, secure payments using Pi Network for all plans.</p>
                 </div>
             </div>
         </section>
-        <section id="cta" class="section bg-[var(--gradient)] text-white py-8">
-            <h2>Take the First Step Today</h2>
-            <p class="subtitle opacity-90">Join SundaySoul and find peace with Pi. You’re stronger than you know.</p>
-            <a href="#pi-signin" class="btn pulse mt-4 flex items-center justify-center mx-auto" aria-label="Get started with Pi Network">
-                <i class="fas fa-coins mr-2"></i> Start Your Journey
+
+        <!-- CTA Section -->
+        <section class="cta-section">
+            <h2>Start Your Journey Today</h2>
+            <p class="subtitle">Choose a plan and unlock a world of mindfulness with SundaySoul.</p>
+            <a href="plans.html" class="btn" aria-label="Get started with SundaySoul">
+                <i class="fas fa-star mr-2"></i> Get Started
             </a>
         </section>
     </main>
+
+    <!-- Footer -->
     <footer>
-    <div class="footer-container">
-        <div class="footer-column">
-            <h3><i class="fas fa-star mr-1"></i> Plans</h3>
-            <ul>
-                <li><a href="plans.html" class="pi-link">Try 14-days free</a></li>
-                <li><a href="plans.html">Our plans</a></li>
-                <li><a href="coaching.html">Mental health coaching</a></li>
-                <li><a href="family-plan.html">Family plan</a></li>
-                <li><a href="refer.html" class="pi-link">Refer & Earn</a></li>
-                <li><a href="redeem.html">Redeem a code</a></li>
-                <li><a href="pi-signin.html" class="pi-link">Sign in with Pi</a></li>
-            </ul>
-        </div>
-        <div class="footer-column">
-            <h3><i class="fas fa-users mr-1"></i> Communities</h3>
-            <ul>
-                <li><a href="communities.html">SundaySoul for communities</a></li>
-                <li><a href="admin.html">Admin login</a></li>
-            </ul>
-        </div>
-        <div class="footer-column">
-            <h3><i class="fas fa-book mr-1"></i> Content</h3>
-            <ul>
-                <li><a href="content.html">Our content</a></li>
-                <li><a href="meditation.html">Meditation app</a></li>
-                <li><a href="meditation-guides.html">Meditation guides</a></li>
-                <li><a href="quick-meditations.html">Quick meditations</a></li>
-                <li><a href="ebb-ai.html">Ebb AI sessions</a></li>
-                <li><a href="sleep.html">Sleep app</a></li>
-                <li><a href="sleep-stories.html">Sleep stories</a></li>
-                <li><a href="calming-sounds.html">Calming sounds</a></li>
-                <li><a href="mindfulness.html">Mindfulness app</a></li>
-                <li><a href="mindfulness-tips.html">Mindfulness tips</a></li>
-                <li><a href="mental-wellness.html">Mental wellness</a></li>
-                <li><a href="guides.html">Browse all guides</a></li>
-            </ul>
-        </div>
-        <div class="footer-column">
-            <h3><i class="fas fa-info-circle mr-1"></i> About</h3>
-            <ul>
-                <li><a href="about.html">About SundaySoul</a></li>
-                <li><a href="app.html">About the app</a></li>
-                <li><a href="mission.html">Our mission</a></li>
-                <li><a href="press.html">Press</a></li>
-                <li><a href="careers.html">Careers</a></li>
-                <li><a href="sitemap.html">Sitemap</a></li>
-            </ul>
-        </div>
-        <div class="footer-column">
-            <h3><i class="fas fa-question-circle mr-1"></i> Support</h3>
-            <ul>
-                <li><a href="help.html">Help center</a></li>
-                <li><a href="contact.html">Contact us</a></li>
-                <li><a href="resources.html">Mental health resources</a></li>
-                <li><a href="accessibility.html">Accessibility</a></li>
-                <li><a href="privacy.html">Privacy policy</a></li>
-                <li><a href="security.html">Security</a></li>
-            </ul>
-        </div>
-    </div>
+        <div class="footer-container">
+            <div class="footer-column">
+                <h3><i class="fas fa-star mr-1"></i> Plans</h3>
+                <ul>
+                    <li><a href="plans.html" class="pi-link">Try 14-days free</a></li>
+                    <li><a href="plans.html">Our plans</a></li>
+                    <li><a href="coaching.html">Mental health coaching</a></li>
+                    <li><a href="family-plan.html">Family plan</a></li>
+                    <li><a href="refer.html">Refer & Earn</a></li>
+                    <li><a href="redeem.html">Redeem a code</a></li>
+                    <li><a href="pi-signin.html" class="pi-link">Sign in with Pi</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h3><i class="fas fa-users mr-1"></i> Communities</h3>
+                <ul>
+                    <li><a href="communities.html">SundaySoul for communities</a></li>
+                    <li><a href="admin.html">Admin login</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h3><i class="fas fa-book mr-1"></i> Content</h3>
+                <ul>
+                    <li><a href="content.html">Our content</a></li>
+                    <li><a href="meditation.html">Meditation app</a></li>
+                    <li><a href="meditation-guides.html">Meditation guides</a></li>
+                    <li><a href="quick-meditations.html">Quick meditations</a></li>
+                    <li><a href="ebb-ai.html">Ebb AI sessions</a></li>
+                    <li><a href="sleep.html">Sleep app</a></li>
+                    <li><a href="sleep-stories.html">Sleep stories</a></li>
+                    <li><a href="calming-sounds.html">Calming sounds</a></li>
+                    <li><a href="mindfulness.html">Mindfulness app</a></li>
+                    <li><a href="mindfulness-tips.html">Mindfulness tips</a></li>
+                    <li><a href="mental-wellness.html">Mental wellness</a></li>
+                    <li><a href="guides.html">Browse all guides</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h3><i class="fas fa-info-circle mr-1"></i> About</h3>
+                <ul>
+                    <li><a href="about.html">About SundaySoul</a></li>
+                    <li><a href="app.html">About the app</a></li>
+                    <li><a href="mission.html">Our mission</a></li>
+                    <li><a href="press.html">Press</a></li>
+                    <li><a href="careers.html">Careers</a></li>
+                    <li><a href="sitemap.html">Sitemap</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h3><i class="fas fa-question-circle mr-1"></i> Support</h3>
+                <ul>
+                    <li><a href="help.html">Help center</a></li>
+                    <li><a href="contact.html">Contact us</a></li>
+                    <li><a href="resources.html">Mental health resources</a></li>
+                    <li><a href="accessibility.html">Accessibility</a></li>
+                    <li><a href="privacy.html">Privacy policy</a></li>
+                    <li><a href="terms.html">Terms of service</a></li>
+                    <li><a href="security.html">Security</a></li>
+                </ul>
+            </div>
             <div class="footer-column">
                 <h3><i class="fas fa-globe mr-1"></i> Connect</h3>
                 <ul>
@@ -942,7 +634,7 @@
                 </ul>
                 <form class="newsletter-form" onsubmit="handleNewsletterSubmit(event)">
                     <label for="newsletter-email" class="sr-only">Email for newsletter</label>
-                    <input type="email" id="newsletter-email" placeholder="Enter your email" required aria-label="Email for newsletter" />
+                    <input type="email" id="newsletter-email" placeholder="Enter your email" required aria-label="Email for newsletter">
                     <button type="submit" class="btn" aria-label="Subscribe to newsletter">Stay in touch</button>
                 </form>
             </div>
@@ -951,14 +643,8 @@
             <p>© <span id="copyright-year"></span> SundaySoul. All rights reserved.</p>
         </div>
     </footer>
-    <div id="referral-modal" class="hidden fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
-        <div class="bg-[var(--card-bg)] p-6 rounded-xl max-w-md text-center">
-            <h3 class="text-[var(--primary)]">Refer & Earn!</h3>
-            <p>Invite friends to SundaySoul and earn 2 Pi per sign-up!</p>
-            <input type="text" value="https://sundaysoul.app/refer/123" readonly class="w-full p-2 mt-2 border rounded-xl" />
-            <button class="btn mt-4" onclick="copyReferral()" aria-label="Copy referral link">Copy Link</button>
-        </div>
-    </div>
+
+    <!-- JavaScript -->
     <script>
         if ('serviceWorker' in navigator) {
             navigator.serviceWorker.register('/service-worker.js').catch(err => {
@@ -968,13 +654,11 @@
         }
     </script>
     <script type="module">
+        import { displayFunFact } from './funFacts.js';
         document.addEventListener('DOMContentLoaded', () => {
             document.getElementById('copyright-year').textContent = new Date().getFullYear();
             checkOnlineStatus();
-            setupVideoErrorHandling();
-            updateLifetimeAvailability();
-            animatePioneerCounter();
-            revealCards();
+            displayFunFact('fun-fact', { forceNew: false });
         });
         const hamburger = document.querySelector('.hamburger');
         const navMenu = document.querySelector('.nav-menu');
@@ -996,14 +680,6 @@
         }
         window.addEventListener('online', checkOnlineStatus);
         window.addEventListener('offline', checkOnlineStatus);
-        function setupVideoErrorHandling() {
-            const video = document.querySelector('.video-container video');
-            const fallback = document.querySelector('.video-fallback');
-            video.addEventListener('error', () => {
-                video.style.display = 'none';
-                fallback.style.display = 'block';
-            });
-        }
         document.querySelectorAll('.pi-signin').forEach(btn => {
             btn.addEventListener('click', async () => {
                 try {
@@ -1014,24 +690,10 @@
                 }
             });
         });
-        document.querySelectorAll('a[href="#quiz"]').forEach(btn => {
-            btn.addEventListener('click', () => {
-                showError('Mental health quiz coming soon! (placeholder)');
-            });
-        });
         function switchLanguage(lang) {
             console.log(`Switching to language: ${lang}`);
             showError(`Language switched to ${lang} (placeholder)`);
         }
-        document.querySelectorAll('.faq-question').forEach(question => {
-            question.addEventListener('click', () => {
-                const answer = question.nextElementSibling;
-                const isActive = answer.classList.contains('active');
-                answer.classList.toggle('active');
-                question.classList.toggle('active');
-                question.setAttribute('aria-expanded', !isActive);
-            });
-        });
         function handleNewsletterSubmit(event) {
             event.preventDefault();
             const email = document.getElementById('newsletter-email').value;
@@ -1039,69 +701,6 @@
             showError('Thank you for subscribing! (placeholder)');
             event.target.reset();
         }
-        function copyReferral() {
-            const input = document.querySelector('#referral-modal input');
-            input.select();
-            document.execCommand('copy');
-            showError('Referral link copied!');
-        }
-        document.querySelector('a[href="#refer"]').addEventListener('click', () => {
-            document.getElementById('referral-modal').classList.remove('hidden');
-        });
-        function updateLifetimeAvailability() {
-            const availabilityText = document.querySelector('.card p.text-[var(--error)]');
-            let accountsLeft = parseInt(localStorage.getItem('accountsLeft') || '5');
-            if (accountsLeft > 0) {
-                availabilityText.textContent = `Only ${accountsLeft} accounts left!`;
-                setTimeout(() => {
-                    accountsLeft--;
-                    localStorage.setItem('accountsLeft', accountsLeft);
-                    updateLifetimeAvailability();
-                }, 24 * 60 * 60 * 1000);
-            } else {
-                availabilityText.textContent = 'Lifetime plan sold out!';
-                document.querySelector('.card .btn').disabled = true;
-            }
-        }
-        function animatePioneerCounter() {
-            const pioneerCount = document.getElementById('pioneer-count');
-            let count = 10000;
-            const target = 15000;
-            const increment = Math.ceil((target - count) / 50);
-            const interval = setInterval(() => {
-                count += increment;
-                if (count >= target) {
-                    count = target;
-                    clearInterval(interval);
-                }
-                pioneerCount.textContent = count.toLocaleString();
-            }, 100);
-        }
-        function revealCards() {
-            const cards = document.querySelectorAll('.card');
-            const observer = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        entry.target.classList.add('reveal');
-                        observer.unobserve(entry.target);
-                    }
-                });
-            }, { threshold: 0.2 });
-            cards.forEach(card => observer.observe(card));
-        }
-        function promptNotifications() {
-            if ('Notification' in window && Notification.permission !== 'denied') {
-                Notification.requestPermission().then(permission => {
-                    if (permission === 'granted') {
-                        new Notification('Welcome to SundaySoul!', {
-                            body: 'Start your mental wellness journey today. Only 5 Lifetime plans left!',
-                            icon: '/sundaysoul-logo.webp'
-                        });
-                    }
-                });
-            }
-        }
-        setTimeout(promptNotifications, 5000);
     </script>
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-XXXXX-X"></script>
     <script>
@@ -1109,11 +708,6 @@
         function gtag(){dataLayer.push(arguments);}
         gtag('js', new Date());
         gtag('config', 'UA-XXXXX-X');
-        document.querySelectorAll('.btn').forEach(btn => {
-            btn.addEventListener('click', () => {
-                gtag('event', 'click', { event_category: 'Button CTA', event_label: btn.textContent });
-            });
-        });
     </script>
 </body>
 </html>
