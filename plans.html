@@ -1,0 +1,915 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <meta name="description" content="SundaySoul Plans: Choose the perfect mindfulness plan with Pi Network. Free, Standard, Premium, Pro, or Lifetime options for mental wellness." />
+    <meta name="keywords" content="SundaySoul, mindfulness, mental health, Pi Network, meditation, subscription plans, wellness" />
+    <meta name="author" content="SundaySoul Team" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="theme-color" content="#5DADE2" />
+    <meta property="og:title" content="SundaySoul - Choose Your Plan" />
+    <meta property="og:description" content="Find the perfect mindfulness plan with Pi Network." />
+    <meta property="og:image" content="/sundaysoul-logo.jpg" />
+    <meta property="og:url" content="https://sundaysoul.app/plans.html" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <link rel="manifest" href="/manifest.json" />
+    <link rel="icon" href="/favicon.ico" type="image/x-icon" />
+    <link rel="apple-touch-icon" href="/icon-192.png" />
+    <title>SundaySoul - Choose Your Plan</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Poppins:wght@600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" media="print" onload="this.media='all'" />
+    <style>
+        :root {
+            --primary: #5DADE2;
+            --secondary: #8E44AD;
+            --gradient: linear-gradient(45deg, #5DADE2, #8E44AD);
+            --gold-gradient: linear-gradient(45deg, #FFD700, #FFA500);
+            --text: #2C3E50;
+            --background: #F7FBFF;
+            --card-bg: #E8F0FE;
+            --hover-bg: #D6EAF8;
+            --shadow: 0 6px 14px rgba(0, 0, 0, 0.08);
+            --error: #FF7675;
+            /* SmartSolve colors for plan cards */
+            --plan-primary: #A3CFFA;
+            --plan-secondary: #A8D5BA;
+            --plan-gradient: linear-gradient(45deg, #A3CFFA, #A8D5BA);
+            --plan-highlight-bg: #FFD700;
+        }
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--background);
+            color: var(--text);
+            line-height: 1.7;
+            overflow-x: hidden;
+            -webkit-tap-highlight-color: transparent;
+            overscroll-behavior: none;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+        a:focus, button:focus, input:focus {
+            outline: 3px solid var(--primary);
+            outline-offset: 3px;
+        }
+        @media (prefers-reduced-motion: reduce) {
+            *, *:before, *:after {
+                transition: none !important;
+                animation: none !important;
+            }
+        }
+        @media (forced-colors: active) {
+            .card, .app-bar, .section, footer {
+                border: 1px solid CanvasText;
+            }
+            .btn, .pi-signin {
+                border: 1px solid ButtonText;
+            }
+        }
+        .skip-link {
+            position: absolute;
+            top: -100px;
+            left: 1rem;
+            background: var(--primary);
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            z-index: 1002;
+            transition: top 0.3s ease;
+        }
+        .skip-link:focus {
+            top: 1rem;
+        }
+        .app-bar {
+            background: var(--background);
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            padding: 1rem;
+            box-shadow: var(--shadow);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 1000;
+        }
+        .app-bar .logo {
+            font-family: 'Poppins', sans-serif;
+            font-size: clamp(1.3rem, 3vw, 1.5rem);
+            font-weight: 700;
+            color: var(--primary);
+            display: flex;
+            align-items: center;
+        }
+        .logo-icon {
+            margin-right: 8px;
+            color: var(--primary);
+            transition: transform 0.3s ease;
+        }
+        .app-bar .logo:hover .logo-icon {
+            transform: scale(1.1);
+        }
+        .app-bar .pi-signin {
+            background: var(--secondary);
+            color: white;
+            padding: 0.6rem 1.2rem;
+            border-radius: 24px;
+            font-size: 0.9rem;
+            transition: background 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+        }
+        .app-bar .pi-signin:hover,
+        .app-bar .pi-signin:focus {
+            background: var(--primary);
+            transform: scale(1.08);
+            box-shadow: 0 4px 12px rgba(93, 173, 226, 0.3);
+        }
+        .hamburger {
+            display: none;
+            font-size: 1.5rem;
+            background: none;
+            border: none;
+            color: var(--text);
+            cursor: pointer;
+        }
+        .nav-menu {
+            display: flex;
+            gap: 1.5rem;
+            align-items: center;
+        }
+        .nav-menu a {
+            text-decoration: none;
+            color: var(--text);
+            font-weight: 500;
+            font-size: 0.9rem;
+            transition: color 0.3s ease;
+        }
+        .nav-menu a:hover,
+        .nav-menu a:focus {
+            color: var(--primary);
+        }
+        .language-switcher {
+            background: none;
+            border: 1px solid var(--text);
+            border-radius: 20px;
+            padding: 0.3rem 0.8rem;
+            font-size: 0.85rem;
+            color: var(--text);
+            cursor: pointer;
+            transition: border-color 0.3s ease, color 0.3s ease;
+        }
+        .language-switcher:hover,
+        .language-switcher:focus {
+            border-color: var(--primary);
+            color: var(--primary);
+        }
+        .section {
+            padding: clamp(3rem, 5vw, 4rem) 1rem clamp(1.5rem, 3vw, 2rem);
+            text-align: center;
+        }
+        .section h2 {
+            font-family: 'Poppins', sans-serif;
+            font-size: clamp(1.8rem, 4vw, 2.2rem);
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: var(--primary);
+        }
+        .section p.subtitle {
+            font-size: clamp(0.95rem, 2vw, 1rem);
+            max-width: 600px;
+            margin: 0 auto 1.5rem;
+            color: var(--text);
+            opacity: 0.8;
+        }
+        .fade-in {
+            animation: fadeIn 0.6s ease-out;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .hero-section {
+            position: relative;
+            background: var(--card-bg);
+            min-height: calc(100vh - 60px);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: clamp(2rem, 5vw, 4rem) 1rem;
+            overflow: hidden;
+            z-index: 1;
+        }
+        .hero-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: var(--gradient);
+            opacity: 0.05;
+            z-index: -1;
+        }
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+        .hero-content h1 {
+            font-family: 'Poppins', sans-serif;
+            font-size: clamp(2.2rem, 5.5vw, 4rem);
+            font-weight: 700;
+            color: var(--text);
+            margin-bottom: 1rem;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        .hero-content .subtitle {
+            font-size: clamp(1rem, 2.5vw, 1.2rem);
+            color: var(--text);
+            opacity: 0.85;
+            max-width: 600px;
+            margin: 0 auto 1.5rem;
+        }
+        .fun-fact-card {
+            background: var(--card-bg);
+            padding: 1rem;
+            border-radius: 12px;
+            box-shadow: var(--shadow);
+            max-width: 600px;
+            margin: 1.5rem auto;
+            text-align: center;
+            animation: fadeIn 0.6s ease-out;
+        }
+        .fun-fact-card p {
+            font-size: clamp(0.95rem, 2vw, 1rem);
+            color: var(--text);
+            opacity: 0.85;
+        }
+        .error-message {
+            background: var(--error);
+            color: white;
+            padding: 0.5rem;
+            border-radius: 8px;
+            text-align: center;
+            display: none;
+            margin: 0.5rem auto;
+            font-size: 0.9rem;
+            max-width: 90%;
+        }
+        /* SmartSolve-inspired plan card styles */
+        .pricing-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .card {
+            background: var(--card-bg);
+            padding: 2rem;
+            border-radius: 20px;
+            box-shadow: var(--shadow);
+            text-align: left;
+            position: relative;
+            transition: transform 0.3s ease;
+        }
+        .card:hover {
+            transform: translateY(-5px);
+        }
+        .card.lifetime {
+            background: var(--plan-gradient);
+            color: var(--text);
+        }
+        .card.lifetime h3,
+        .card.lifetime p,
+        .card.lifetime ul li {
+            color: var(--text);
+            opacity: 1;
+        }
+        .card .badge {
+            position: absolute;
+            top: -15px;
+            right: 15px;
+            background: var(--plan-highlight-bg);
+            color: var(--text);
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: clamp(0.7rem, 1.5vw, 0.8rem);
+            font-weight: 600;
+            box-shadow: var(--shadow);
+            max-width: 120px;
+            text-align: center;
+        }
+        .card h3 {
+            font-family: 'Poppins', sans-serif;
+            font-size: 1.5rem;
+            color: var(--text);
+            margin-bottom: 1rem;
+        }
+        .card .price {
+            font-family: 'Poppins', sans-serif;
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--plan-primary);
+            margin-bottom: 1rem;
+        }
+        .card.lifetime .price {
+            color: var(--text);
+        }
+        .card p {
+            font-size: 0.9rem;
+            color: var(--text);
+            opacity: 0.8;
+            margin-bottom: 1rem;
+        }
+        .card ul {
+            list-style: none;
+            margin: 1rem 0;
+        }
+        .card ul li {
+            font-size: 0.9rem;
+            color: var(--text);
+            margin: 0.5rem 0;
+            display: flex;
+            align-items: flex-start;
+            gap: 8px;
+        }
+        .card ul li i {
+            color: var(--plan-primary);
+            font-size: 0.9rem;
+            margin-top: 2px;
+        }
+        .card.lifetime ul li i {
+            color: var(--text);
+        }
+        .btn {
+            display: inline-block;
+            background: var(--plan-primary);
+            color: white;
+            padding: 0.8rem 2rem;
+            border-radius: 20px;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.95rem;
+            transition: background 0.3s ease, transform 0.3s ease;
+            margin-top: 1rem;
+            text-align: center;
+            width: 100%;
+            border: none;
+            cursor: pointer;
+        }
+        .btn.lifetime {
+            background: var(--plan-highlight-bg);
+            color: var(--text);
+        }
+        .btn:hover {
+            background: var(--plan-secondary);
+            transform: scale(1.05);
+        }
+        .btn.lifetime:hover {
+            background: #FFC107;
+        }
+        .btn.disabled {
+            background: #ccc;
+            cursor: not-allowed;
+            transform: none;
+        }
+        .countdown {
+            font-size: 0.9rem;
+            color: var(--text);
+            margin-top: 1rem;
+            font-weight: 500;
+            text-align: center;
+        }
+        .terms-card {
+            background: var(--card-bg);
+            padding: 1.5rem;
+            border-radius: 20px;
+            box-shadow: var(--shadow);
+            max-width: 800px;
+            margin: 2rem auto;
+            text-align: center;
+        }
+        .terms-card p {
+            font-size: 0.9rem;
+            color: var(--text);
+            opacity: 0.8;
+        }
+        .terms-card a {
+            color: var(--primary);
+            text-decoration: none;
+        }
+        .terms-card a:hover {
+            color: var(--secondary);
+        }
+        footer {
+            background: var(--card-bg);
+            padding: clamp(2rem, 4vw, 3rem) 1rem;
+            text-align: left;
+        }
+        .footer-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+        }
+        .footer-column {
+            margin-bottom: 1rem;
+        }
+        .footer-column h3 {
+            font-family: 'Poppins', sans-serif;
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+        }
+        .footer-column ul {
+            list-style: none;
+            padding: 0;
+        }
+        .footer-column li {
+            margin-bottom: 0.5rem;
+        }
+        .footer-column a {
+            text-decoration: none;
+            color: var(--text);
+            font-size: 0.9rem;
+            transition: color 0.3s ease;
+        }
+        .footer-column a:hover,
+        .footer-column a:focus {
+            color: var(--primary);
+        }
+        .footer-column .pi-link {
+            color: var(--secondary);
+        }
+        .footer-column .pi-link:hover,
+        .footer-column .pi-link:focus {
+            color: var(--primary);
+        }
+        .newsletter-form {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+            margin-top: 1rem;
+        }
+        .newsletter-form input {
+            padding: 0.5rem;
+            border: 1px solid var(--text);
+            border-radius: 20px;
+            font-size: 0.9rem;
+            color: var(--text);
+            background: var(--background);
+            transition: border-color 0.3s ease;
+        }
+        .newsletter-form input:focus {
+            border-color: var(--primary);
+        }
+        .newsletter-form button {
+            padding: 0.5rem 1rem;
+            border: none;
+            border-radius: 20px;
+            background: var(--gradient);
+            color: white;
+            font-size: 0.9rem;
+            cursor: pointer;
+            transition: transform 0.3s ease, background 0.3s ease;
+        }
+        .newsletter-form button:hover {
+            transform: scale(1.05);
+            background: var(--primary);
+        }
+        .footer-bottom {
+            text-align: center;
+            margin-top: 2rem;
+            padding-top: 1rem;
+            border-top: 1px solid rgba(0, 0, 0, 0.1);
+            font-size: 0.85rem;
+            opacity: 0.8;
+        }
+        @media (max-width: 768px) {
+            .nav-menu {
+                display: none;
+                position: absolute;
+                top: 60px;
+                left: 0;
+                right: 0;
+                background: var(--background);
+                flex-direction: column;
+                padding: 1rem;
+                box-shadow: var(--shadow);
+            }
+            .nav-menu.active {
+                display: flex;
+            }
+            .hamburger {
+                display: block;
+            }
+            .section {
+                padding: 3rem 0.5rem 1.5rem;
+            }
+            .pricing-container {
+                grid-template-columns: 1fr;
+            }
+            .hero-section::before {
+                opacity: 0.03;
+            }
+            .footer-container {
+                grid-template-columns: 1fr;
+            }
+        }
+        @media (max-width: 480px) {
+            .app-bar .logo {
+                font-size: 1.3rem;
+            }
+            .hero-content h1 {
+                font-size: 2rem;
+            }
+            .card {
+                padding: 1.5rem;
+            }
+            .card .price {
+                font-size: 1.8rem;
+            }
+            .card .badge {
+                font-size: 0.7rem;
+                padding: 0.4rem 0.8rem;
+            }
+            .fun-fact-card p {
+                font-size: 0.9rem;
+            }
+        }
+        @media (min-width: 769px) {
+            .section {
+                padding: 5rem 2rem 3rem;
+            }
+        }
+        @supports (-webkit-touch-callout: none) {
+            .hero-section {
+                min-height: -webkit-fill-available;
+            }
+        }
+    </style>
+</head>
+<body class="flex flex-col min-h-screen">
+    <a href="#main-content" class="skip-link">Skip to Content</a>
+    <header class="app-bar">
+        <div class="logo">
+            <i class="fas fa-heart logo-icon"></i> SundaySoul
+        </div>
+        <nav class="nav-menu">
+            <a href="index.html#stories">Stories</a>
+            <a href="index.html#features">Features</a>
+            <a href="plans.html">Plans</a>
+            <a href="#pi-signin" class="pi-signin">Sign in with Pi</a>
+            <select class="language-switcher" aria-label="Select language" onchange="switchLanguage(this.value)">
+                <option value="en">English</option>
+                <option value="es">Español</option>
+            </select>
+        </nav>
+        <button class="hamburger" aria-label="Toggle menu"><i class="fas fa-bars"></i></button>
+    </header>
+    <div id="error-message" class="error-message"></div>
+    <main class="flex-1" id="main-content">
+        <section class="hero-section">
+            <div class="hero-content fade-in">
+                <h1>Find Your Perfect Plan</h1>
+                <p class="subtitle">Choose a SundaySoul plan to support your mental wellness journey with Pi Network.</p>
+                <div class="fun-fact-card">
+                    <p id="fun-fact" aria-live="polite">Loading your fun fact...</p>
+                </div>
+                <a href="#plans" class="btn pulse mt-4 flex items-center justify-center mx-auto" aria-label="Explore plans">
+                    <i class="fas fa-coins mr-2"></i> Explore Plans
+                </a>
+            </div>
+        </section>
+        <section id="plans" class="section bg-[var(--card-bg)]">
+            <div class="text-center bg-[var(--primary)] text-white py-2 px-4 mx-auto max-w-3xl rounded-xl mb-4">
+                <p>Lifetime Access for 99 Pi! Pay once, enjoy forever. Only a few spots left!</p>
+            </div>
+            <h2>Choose Your Path to Peace</h2>
+            <p class="subtitle">Find the plan that supports your mental wellness journey.</p>
+            <div class="pricing-container">
+                <!-- Free Plan -->
+                <div class="card">
+                    <h3>Free Plan</h3>
+                    <div class="price">0 Pi</div>
+                    <p>Essential tools to start your mindfulness journey.</p>
+                    <ul>
+                        <li><i class="fas fa-check"></i>5 Guided Meditations (Anxiety & Stress)</li>
+                        <li><i class="fas fa-check"></i>3 Sleep Stories for Restful Nights</li>
+                        <li><i class="fas fa-check"></i>Basic Mood Tracking Journal</li>
+                        <li><i class="fas fa-check"></i>Access to Weekly Community Events</li>
+                        <li><i class="fas fa-check"></i>Pi Community Forum Access</li>
+                    </ul>
+                    <button class="btn" id="free-plan-btn" aria-label="Select Free Plan">Get Started</button>
+                </div>
+                <!-- Standard Plan -->
+                <div class="card">
+                    <h3>Standard Plan</h3>
+                    <div class="price">3 Pi/month</div>
+                    <p>Core tools for daily mental wellness.</p>
+                    <ul>
+                        <li><i class="fas fa-check"></i>Unlimited Meditations (Anxiety, Depression, Focus)</li>
+                        <li><i class="fas fa-check"></i>Full Sleep Story Library (50+ Stories)</li>
+                        <li><i class="fas fa-check"></i>Ebb AI Mood Assistant (3 sessions/day)</li>
+                        <li><i class="fas fa-check"></i>Personalized Meditation Recommendations</li>
+                        <li><i class="fas fa-check"></i>Offline Meditation Downloads</li>
+                    </ul>
+                    <button class="btn" id="standard-plan-btn" aria-label="Select Standard Plan">Choose Standard</button>
+                </div>
+                <!-- Premium Plan -->
+                <div class="card">
+                    <h3>Premium Plan</h3>
+                    <div class="price">6 Pi/month</div>
+                    <p>Support for families and groups.</p>
+                    <ul>
+                        <li><i class="fas fa-check"></i>All Standard Features</li>
+                        <li><i class="fas fa-check"></i>Family Wellness Dashboard (Up to 5 Users)</li>
+                        <li><i class="fas fa-check"></i>Kids’ Meditation Mode (Ages 4-12)</li>
+                        <li><i class="fas fa-check"></i>Guided Group Meditations for Families</li>
+                        <li><i class="fas fa-check"></i>Enhanced Privacy Controls</li>
+                    </ul>
+                    <button class="btn" id="premium-plan-btn" aria-label="Select Premium Plan">Choose Premium</button>
+                </div>
+                <!-- Pro Plan -->
+                <div class="card">
+                    <h3>Pro Plan</h3>
+                    <div class="price">9 Pi/month</div>
+                    <p>Advanced tools for dedicated users.</p>
+                    <ul>
+                        <li><i class="fas fa-check"></i>All Premium Features</li>
+                        <li><i class="fas fa-check"></i>Team Wellness Collaboration (Up to 10 Users)</li>
+                        <li><i class="fas fa-check"></i>Business Tools (Pi Reward Tracker)</li>
+                        <li><i class="fas fa-check"></i>Advanced Mindfulness Analytics</li>
+                        <li><i class="fas fa-check"></i>Ebb AI Virtual Assistant (10 sessions/day)</li>
+                    </ul>
+                    <button class="btn" id="pro-plan-btn" aria-label="Select Pro Plan">Choose Pro</button>
+                </div>
+                <!-- Lifetime Plan -->
+                <div class="card lifetime">
+                    <div class="badge">Limited Accounts!</div>
+                    <h3>🔓 Lifetime Plan</h3>
+                    <div class="price">💰 99 Pi One-Time</div>
+                    <p>Pay once, unlock everything forever! Only a few accounts left!</p>
+                    <ul>
+                        <li><i class="fas fa-check"></i>✅ All Pro Features</li>
+                        <li><i class="fas fa-check"></i>✅ Lifetime Access – No Monthly Fees</li>
+                        <li><i class="fas fa-check"></i>✅ Priority Support (24/7 Chat)</li>
+                        <li><i class="fas fa-check"></i>✅ Early Access to New Features</li>
+                        <li><i class="fas fa-check"></i>✅ Exclusive Lifetime Badge</li>
+                        <li><i class="fas fa-check"></i>✅ Monthly Expert Webinars</li>
+                        <li><i class="fas fa-check"></i>✅ Beta Tester for Future Apps</li>
+                    </ul>
+                    <button class="btn lifetime" id="lifetime-plan-btn" aria-label="Select Lifetime Plan">Get Lifetime Now</button>
+                    <div class="countdown">⏰ Only a few accounts left!</div>
+                </div>
+            </div>
+            <div class="terms-card">
+                <p>By subscribing, you agree to our <a href="terms.html">Terms of Service</a> and <a href="privacy.html">Privacy Policy</a>.</p>
+            </div>
+            <div class="text-center mt-3 text-xs">
+                <a href="#refer" class="text-[var(--primary)] hover:underline flex items-center justify-center">
+                    <i class="fas fa-coins mr-1"></i> Refer & Earn 2 Pi
+                </a>
+            </div>
+        </section>
+    </main>
+    <footer>
+        <div class="footer-container">
+            <div class="footer-column">
+                <h3><i class="fas fa-star mr-1"></i> Plans</h3>
+                <ul>
+                    <li><a href="plans.html" class="pi-link">Try 14-days free</a></li>
+                    <li><a href="plans.html">Our plans</a></li>
+                    <li><a href="coaching.html">Mental health coaching</a></li>
+                    <li><a href="family-plan.html">Family plan</a></li>
+                    <li><a href="refer.html">Refer & Earn</a></li>
+                    <li><a href="redeem.html">Redeem a code</a></li>
+                    <li><a href="pi-signin.html" class="pi-link">Sign in with Pi</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h3><i class="fas fa-users mr-1"></i> Communities</h3>
+                <ul>
+                    <li><a href="communities.html">SundaySoul for communities</a></li>
+                    <li><a href="admin.html">Admin login</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h3><i class="fas fa-book mr-1"></i> Content</h3>
+                <ul>
+                    <li><a href="content.html">Our content</a></li>
+                    <li><a href="meditation.html">Meditation app</a></li>
+                    <li><a href="meditation-guides.html">Meditation guides</a></li>
+                    <li><a href="quick-meditations.html">Quick meditations</a></li>
+                    <li><a href="ebb-ai.html">Ebb AI sessions</a></li>
+                    <li><a href="sleep.html">Sleep app</a></li>
+                    <li><a href="sleep-stories.html">Sleep stories</a></li>
+                    <li><a href="calming-sounds.html">Calming sounds</a></li>
+                    <li><a href="mindfulness.html">Mindfulness app</a></li>
+                    <li><a href="mindfulness-tips.html">Mindfulness tips</a></li>
+                    <li><a href="mental-wellness.html">Mental wellness</a></li>
+                    <li><a href="guides.html">Browse all guides</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h3><i class="fas fa-info-circle mr-1"></i> About</h3>
+                <ul>
+                    <li><a href="about.html">About SundaySoul</a></li>
+                    <li><a href="app.html">About the app</a></li>
+                    <li><a href="mission.html">Our mission</a></li>
+                    <li><a href="press.html">Press</a></li>
+                    <li><a href="careers.html">Careers</a></li>
+                    <li><a href="sitemap.html">Sitemap</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h3><i class="fas fa-question-circle mr-1"></i> Support</h3>
+                <ul>
+                    <li><a href="help.html">Help center</a></li>
+                    <li><a href="contact.html">Contact us</a></li>
+                    <li><a href="resources.html">Mental health resources</a></li>
+                    <li><a href="accessibility.html">Accessibility</a></li>
+                    <li><a href="privacy.html">Privacy policy</a></li>
+                    <li><a href="security.html">Security</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h3><i class="fas fa-globe mr-1"></i> Connect</h3>
+                <ul>
+                    <li><a href="https://minepi.com" class="pi-link">Pi Network</a></li>
+                    <li><a href="#twitter">Twitter</a></li>
+                    <li><a href="#discord">Discord</a></li>
+                </ul>
+                <form class="newsletter-form" onsubmit="handleNewsletterSubmit(event)">
+                    <label for="newsletter-email" class="sr-only">Email for newsletter</label>
+                    <input type="email" id="newsletter-email" placeholder="Enter your email" required aria-label="Email for newsletter" />
+                    <button type="submit" class="btn" aria-label="Subscribe to newsletter">Stay in touch</button>
+                </form>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© <span id="copyright-year"></span> SundaySoul. All rights reserved.</p>
+        </div>
+    </footer>
+    <div id="referral-modal" class="hidden fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
+        <div class="bg-[var(--card-bg)] p-6 rounded-xl max-w-md text-center">
+            <h3 class="text-[var(--primary)]">Refer & Earn!</h3>
+            <p>Invite friends to SundaySoul and earn 2 Pi per sign-up!</p>
+            <input type="text" value="https://sundaysoul.app/refer/123" readonly class="w-full p-2 mt-2 border rounded-xl" />
+            <button class="btn mt-4" onclick="copyReferral()" aria-label="Copy referral link">Copy Link</button>
+        </div>
+    </div>
+    <script>
+        if ('serviceWorker' in navigator) {
+            navigator.serviceWorker.register('/service-worker.js').catch(err => {
+                console.error('Service Worker registration failed:', err);
+                showError('Offline support unavailable.');
+            });
+        }
+    </script>
+    <script type="module">
+        import { displayFunFact } from './funFacts.js';
+        document.addEventListener('DOMContentLoaded', () => {
+            document.getElementById('copyright-year').textContent = new Date().getFullYear();
+            checkOnlineStatus();
+            displayFunFact('fun-fact');
+            updateLifetimeAvailability();
+            revealCards();
+        });
+        const hamburger = document.querySelector('.hamburger');
+        const navMenu = document.querySelector('.nav-menu');
+        hamburger.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+            hamburger.innerHTML = navMenu.classList.contains('active') ? '<i class="fas fa-times"></i>' : '<i class="fas fa-bars"></i>';
+            hamburger.setAttribute('aria-expanded', navMenu.classList.contains('active'));
+        });
+        function showError(message) {
+            const errorDiv = document.getElementById('error-message');
+            errorDiv.textContent = message;
+            errorDiv.style.display = 'block';
+            setTimeout(() => errorDiv.style.display = 'none', 3000);
+        }
+        function checkOnlineStatus() {
+            if (!navigator.onLine) {
+                showError('You are offline. Some features may be unavailable.');
+            }
+        }
+        window.addEventListener('online', checkOnlineStatus);
+        window.addEventListener('offline', checkOnlineStatus);
+        document.querySelectorAll('.pi-signin').forEach(btn => {
+            btn.addEventListener('click', async () => {
+                try {
+                    console.log('Initiating Pi Network login...');
+                    showError('Redirecting to Pi Wallet (placeholder)');
+                } catch (err) {
+                    showError('Failed to connect with Pi Network. Try again.');
+                }
+            });
+        });
+        function switchLanguage(lang) {
+            console.log(`Switching to language: ${lang}`);
+            showError(`Language switched to ${lang} (placeholder)`);
+        }
+        function handleNewsletterSubmit(event) {
+            event.preventDefault();
+            const email = document.getElementById('newsletter-email').value;
+            console.log(`Newsletter signup: ${email}`);
+            showError('Thank you for subscribing! (placeholder)');
+            event.target.reset();
+        }
+        function copyReferral() {
+            const input = document.querySelector('#referral-modal input');
+            input.select();
+            document.execCommand('copy');
+            showError('Referral link copied!');
+        }
+        document.querySelector('a[href="#refer"]').addEventListener('click', () => {
+            document.getElementById('referral-modal').classList.remove('hidden');
+        });
+        function updateLifetimeAvailability() {
+            const availabilityText = document.querySelector('.card p.text-[var(--error)]') || document.querySelector('.countdown');
+            let accountsLeft = parseInt(localStorage.getItem('accountsLeft') || '5');
+            if (availabilityText) {
+                if (accountsLeft > 0) {
+                    availabilityText.textContent = `⏰ Only ${accountsLeft} accounts left!`;
+                    setTimeout(() => {
+                        accountsLeft--;
+                        localStorage.setItem('accountsLeft', accountsLeft);
+                        updateLifetimeAvailability();
+                    }, 24 * 60 * 60 * 1000);
+                } else {
+                    availabilityText.textContent = 'Lifetime plan sold out!';
+                    document.querySelector('.card.lifetime .btn').disabled = true;
+                    document.querySelector('.card.lifetime .btn').classList.add('disabled');
+                }
+            }
+        }
+        function revealCards() {
+            const cards = document.querySelectorAll('.card');
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('reveal');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.2 });
+            cards.forEach(card => observer.observe(card));
+        }
+        // SmartSolve-inspired plan selection
+        const handlePlanSelection = (plan, amount, isOneTime = false) => {
+            console.log(`Selected ${plan} plan${isOneTime ? ' (one-time)' : ''}, amount: ${amount} Pi`);
+            showError(`Redirecting to Pi Wallet for ${plan} plan (placeholder)`);
+            window.location.href = 'signin.html'; // Fallback redirect
+        };
+        const buttons = [
+            { id: 'free-plan-btn', plan: 'Free', amount: 0 },
+            { id: 'standard-plan-btn', plan: 'Standard', amount: 3 },
+            { id: 'premium-plan-btn', plan: 'Premium', amount: 6 },
+            { id: 'pro-plan-btn', plan: 'Pro', amount: 9 },
+            { id: 'lifetime-plan-btn', plan: 'Lifetime', amount: 99, isOneTime: true }
+        ];
+        buttons.forEach(({ id, plan, amount, isOneTime }) => {
+            const button = document.getElementById(id);
+            if (button) {
+                button.addEventListener('click', () => handlePlanSelection(plan, amount, isOneTime));
+            } else {
+                console.warn(`Button with ID ${id} not found.`);
+            }
+        });
+        function promptNotifications() {
+            if ('Notification' in window && Notification.permission !== 'denied') {
+                Notification.requestPermission().then(permission => {
+                    if (permission === 'granted') {
+                        new Notification('Welcome to SundaySoul Plans!', {
+                            body: 'Choose your mindfulness plan today. Only 5 Lifetime plans left!',
+                            icon: '/sundaysoul-logo.webp'
+                        });
+                    }
+                });
+            }
+        }
+        setTimeout(promptNotifications, 5000);
+    </script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-XXXXX-X"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'UA-XXXXX-X');
+        document.querySelectorAll('.btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+                gtag('event', 'click', { event_category: 'Button CTA', event_label: btn.textContent });
+            });
+        });
+    </script>
+</body>
+</html>
