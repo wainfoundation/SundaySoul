@@ -1,0 +1,644 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <meta name="description" content="Read SundaySoul’s Terms of Service for our mindfulness platform, including usage guidelines and Pi Network payment terms.">
+    <meta name="keywords" content="SundaySoul, terms of service, mindfulness, Pi Network, mental wellness">
+    <meta name="author" content="SundaySoul Team">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="theme-color" content="#5DADE2">
+    <meta property="og:title" content="SundaySoul - Terms of Service">
+    <meta property="og:description" content="Understand the rules for using SundaySoul’s mindfulness platform.">
+    <meta property="og:image" content="/sundaysoul-logo.jpg">
+    <meta property="og:url" content="https://sundaysoul.app/terms.html">
+    <meta name="twitter:card" content="summary_large_image">
+    <link rel="manifest" href="/manifest.json">
+    <link rel="icon" href="/favicon.ico" type="image/x-icon">
+    <link rel="apple-touch-icon" href="/icon-192.png">
+    <title>Terms of Service | SundaySoul</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Poppins:wght@600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" media="print" onload="this.media='all'">
+    <style>
+        :root {
+            --primary: #5DADE2;
+            --secondary: #8E44AD;
+            --gradient: linear-gradient(45deg, #5DADE2, #8E44AD);
+            --gold-gradient: linear-gradient(45deg, #FFD700, #FFA500);
+            --text: #2C3E50;
+            --background: #F7FBFF;
+            --card-bg: #E8F0FE;
+            --hover-bg: #D6EAF8;
+            --shadow: 0 6px 14px rgba(0, 0, 0, 0.08);
+            --error: #FF7675;
+        }
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--background);
+            color: var(--text);
+            line-height: 1.7;
+            overflow-x: hidden;
+            -webkit-tap-highlight-color: transparent;
+            overscroll-behavior: none;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+        a:focus, button:focus, input:focus {
+            outline: 3px solid var(--primary);
+            outline-offset: 3px;
+        }
+        @media (prefers-reduced-motion: reduce) {
+            *, *:before, *:after {
+                transition: none !important;
+                animation: none !important;
+            }
+        }
+        @media (forced-colors: active) {
+            .card, .app-bar, .section, footer {
+                border: 1px solid CanvasText;
+            }
+            .btn, .pi-signin {
+                border: 1px solid ButtonText;
+            }
+        }
+        .skip-link {
+            position: absolute;
+            top: -100px;
+            left: 1rem;
+            background: var(--primary);
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            z-index: 1002;
+            transition: top 0.3s ease;
+        }
+        .skip-link:focus {
+            top: 1rem;
+        }
+        .app-bar {
+            background: var(--background);
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            padding: 1rem;
+            box-shadow: var(--shadow);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 1000;
+        }
+        .app-bar .logo {
+            font-family: 'Poppins', sans-serif;
+            font-size: clamp(1.3rem, 3vw, 1.5rem);
+            font-weight: 700;
+            color: var(--primary);
+            display: flex;
+            align-items: center;
+        }
+        .logo-icon {
+            margin-right: 8px;
+            color: var(--primary);
+            transition: transform 0.3s ease;
+        }
+        .app-bar .logo:hover .logo-icon {
+            transform: scale(1.1);
+        }
+        .app-bar .pi-signin {
+            background: var(--secondary);
+            color: white;
+            padding: 0.6rem 1.2rem;
+            border-radius: 24px;
+            font-size: 0.9rem;
+            transition: background 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+        }
+        .app-bar .pi-signin:hover,
+        .app-bar .pi-signin:focus {
+            background: var(--primary);
+            transform: scale(1.08);
+            box-shadow: 0 4px 12px rgba(93, 173, 226, 0.3);
+        }
+        .hamburger {
+            display: none;
+            font-size: 1.5rem;
+            background: none;
+            border: none;
+            color: var(--text);
+            cursor: pointer;
+        }
+        .nav-menu {
+            display: flex;
+            gap: 1.5rem;
+            align-items: center;
+        }
+        .nav-menu a {
+            text-decoration: none;
+            color: var(--text);
+            font-weight: 500;
+            font-size: 0.9rem;
+            transition: color 0.3s ease;
+        }
+        .nav-menu a:hover,
+        .nav-menu a:focus {
+            color: var(--primary);
+        }
+        .language-switcher {
+            background: none;
+            border: 1px solid var(--text);
+            border-radius: 20px;
+            padding: 0.3rem 0.8rem;
+            font-size: 0.85rem;
+            color: var(--text);
+            cursor: pointer;
+            transition: border-color 0.3s ease, color 0.3s ease;
+        }
+        .language-switcher:hover,
+        .language-switcher:focus {
+            border-color: var(--primary);
+            color: var(--primary);
+        }
+        .section {
+            padding: clamp(3rem, 5vw, 4rem) 1rem clamp(1.5rem, 3vw, 2rem);
+            text-align: center;
+        }
+        .section h2 {
+            font-family: 'Poppins', sans-serif;
+            font-size: clamp(1.8rem, 4vw, 2.2rem);
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: var(--primary);
+        }
+        .section p.subtitle {
+            font-size: clamp(0.95rem, 2vw, 1rem);
+            max-width: 600px;
+            margin: 0 auto 1.5rem;
+            color: var(--text);
+            opacity: 0.8;
+        }
+        .fade-in {
+            animation: fadeIn 0.6s ease-out;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .hero-section {
+            position: relative;
+            background: var(--card-bg);
+            min-height: calc(100vh - 60px);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: clamp(2rem, 5vw, 4rem) 1rem;
+            overflow: hidden;
+            z-index: 1;
+        }
+        .hero-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: var(--gradient);
+            opacity: 0.05;
+            z-index: -1;
+        }
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+        .hero-content h1 {
+            font-family: 'Poppins', sans-serif;
+            font-size: clamp(2.2rem, 5.5vw, 4rem);
+            font-weight: 700;
+            color: var(--text);
+            margin-bottom: 1rem;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        .hero-content .subtitle {
+            font-size: clamp(1rem, 2.5vw, 1.2rem);
+            color: var(--text);
+            opacity: 0.85;
+            max-width: 600px;
+            margin: 0 auto 1.5rem;
+        }
+        .fun-fact-card {
+            background: var(--card-bg);
+            padding: 1rem;
+            border-radius: 12px;
+            box-shadow: var(--shadow);
+            max-width: 600px;
+            margin: 1.5rem auto;
+            text-align: center;
+            animation: fadeIn 0.6s ease-out;
+        }
+        .fun-fact-card p {
+            font-size: clamp(0.95rem, 2vw, 1rem);
+            color: var(--text);
+            opacity: 0.85;
+        }
+        .error-message {
+            background: var(--error);
+            color: white;
+            padding: 0.5rem;
+            border-radius: 8px;
+            text-align: center;
+            display: none;
+            margin: 0.5rem auto;
+            font-size: 0.9rem;
+            max-width: 90%;
+        }
+        .content-card {
+            background: var(--card-bg);
+            padding: 1.5rem;
+            border-radius: 20px;
+            box-shadow: var(--shadow);
+            max-width: 800px;
+            margin: 2rem auto;
+            text-align: left;
+        }
+        .content-card h3 {
+            font-family: 'Poppins', sans-serif;
+            font-size: 1.3rem;
+            color: var(--primary);
+            margin: 1rem 0 0.5rem;
+        }
+        .content-card p {
+            font-size: 0.9rem;
+            color: var(--text);
+            opacity: 0.8;
+            margin-bottom: 1rem;
+        }
+        .content-card ul {
+            list-style: none;
+            margin: 1rem 0;
+        }
+        .content-card ul li {
+            font-size: 0.9rem;
+            color: var(--text);
+            margin: 0.5rem 0;
+            display: flex;
+            align-items: flex-start;
+            gap: 8px;
+        }
+        .content-card ul li i {
+            color: var(--primary);
+            font-size: 0.9rem;
+            margin-top: 2px;
+        }
+        .content-card a {
+            color: var(--primary);
+            text-decoration: none;
+        }
+        .content-card a:hover {
+            color: var(--secondary);
+        }
+        footer {
+            background: var(--card-bg);
+            padding: clamp(2rem, 4vw, 3rem) 1rem;
+            text-align: left;
+        }
+        .footer-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+        }
+        .footer-column {
+            margin-bottom: 1rem;
+        }
+        .footer-column h3 {
+            font-family: 'Poppins', sans-serif;
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+        }
+        .footer-column ul {
+            list-style: none;
+            padding: 0;
+        }
+        .footer-column li {
+            margin-bottom: 0.5rem;
+        }
+        .footer-column a {
+            text-decoration: none;
+            color: var(--text);
+            font-size: 0.9rem;
+            transition: color 0.3s ease;
+        }
+        .footer-column a:hover,
+        .footer-column a:focus {
+            color: var(--primary);
+        }
+        .footer-column .pi-link {
+            color: var(--secondary);
+        }
+        .footer-column .pi-link:hover,
+        .footer-column .pi-link:focus {
+            color: var(--primary);
+        }
+        .newsletter-form {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+            margin-top: 1rem;
+        }
+        .newsletter-form input {
+            padding: 0.5rem;
+            border: 1px solid var(--text);
+            border-radius: 20px;
+            font-size: 0.9rem;
+            color: var(--text);
+            background: var(--background);
+            transition: border-color 0.3s ease;
+        }
+        .newsletter-form input:focus {
+            border-color: var(--primary);
+        }
+        .newsletter-form button {
+            padding: 0.5rem 1rem;
+            border: none;
+            border-radius: 20px;
+            background: var(--gradient);
+            color: white;
+            font-size: 0.9rem;
+            cursor: pointer;
+            transition: transform 0.3s ease, background 0.3s ease;
+        }
+        .newsletter-form button:hover {
+            transform: scale(1.05);
+            background: var(--primary);
+        }
+        .footer-bottom {
+            text-align: center;
+            margin-top: 2rem;
+            padding-top: 1rem;
+            border-top: 1px solid rgba(0, 0, 0, 0.1);
+            font-size: 0.85rem;
+            opacity: 0.8;
+        }
+        @media (max-width: 768px) {
+            .nav-menu {
+                display: none;
+                position: absolute;
+                top: 60px;
+                left: 0;
+                right: 0;
+                background: var(--background);
+                flex-direction: column;
+                padding: 1rem;
+                box-shadow: var(--shadow);
+            }
+            .nav-menu.active {
+                display: flex;
+            }
+            .hamburger {
+                display: block;
+            }
+            .section {
+                padding: 3rem 0.5rem 1.5rem;
+            }
+            .hero-section::before {
+                opacity: 0.03;
+            }
+            .footer-container {
+                grid-template-columns: 1fr;
+            }
+        }
+        @media (max-width: 480px) {
+            .app-bar .logo {
+                font-size: 1.3rem;
+            }
+            .hero-content h1 {
+                font-size: 2rem;
+            }
+            .fun-fact-card p {
+                font-size: 0.9rem;
+            }
+        }
+        @media (min-width: 769px) {
+            .section {
+                padding: 5rem 2rem 3rem;
+            }
+        }
+        @supports (-webkit-touch-callout: none) {
+            .hero-section {
+                min-height: -webkit-fill-available;
+            }
+        }
+    </style>
+</head>
+<body class="flex flex-col min-h-screen">
+    <a href="#main-content" class="skip-link">Skip to Content</a>
+    <header class="app-bar">
+        <div class="logo">
+            <i class="fas fa-heart logo-icon"></i> SundaySoul
+        </div>
+        <nav class="nav-menu">
+            <a href="index.html#stories">Stories</a>
+            <a href="index.html#features">Features</a>
+            <a href="plans.html">Plans</a>
+            <a href="#pi-signin" class="pi-signin">Sign in with Pi</a>
+            <select class="language-switcher" aria-label="Select language" onchange="switchLanguage(this.value)">
+                <option value="en">English</option>
+                <option value="es">Español</option>
+            </select>
+        </nav>
+        <button class="hamburger" aria-label="Toggle menu"><i class="fas fa-bars"></i></button>
+    </header>
+    <div id="error-message" class="error-message"></div>
+    <main class="flex-1" id="main-content">
+        <section class="hero-section">
+            <div class="hero-content fade-in">
+                <h1>Terms of Service</h1>
+                <p class="subtitle">Understand the rules and guidelines for using SundaySoul’s mindfulness platform.</p>
+                <div class="fun-fact-card">
+                    <p id="fun-fact" aria-live="polite">Loading your fun fact...</p>
+                </div>
+            </div>
+        </section>
+        <section id="terms" class="section bg-[var(--card-bg)]">
+            <h2>Our Terms</h2>
+            <p class="subtitle">By using SundaySoul, you agree to these terms.</p>
+            <div class="content-card">
+                <h3>1. Acceptance of Terms</h3>
+                <p>By accessing or using SundaySoul, you agree to be bound by these Terms of Service. If you do not agree, please do not use our services.</p>
+
+                <h3>2. Services Provided</h3>
+                <p>SundaySoul offers mindfulness tools, including guided meditations, sleep stories, Ebb AI sessions, and community events, accessible via subscription plans paid through Pi Network.</p>
+
+                <h3>3. User Responsibilities</h3>
+                <ul>
+                    <li><i class="fas fa-check"></i>Provide accurate information during registration and payment.</li>
+                    <li><i class="fas fa-check"></i>Do not share your account credentials with others.</li>
+                    <li><i class="fas fa-check"></i>Use the platform for lawful purposes only.</li>
+                </ul>
+
+                <h3>4. Payments and Subscriptions</h3>
+                <p>Payments are processed via Pi Network. Subscriptions auto-renew unless canceled. The Lifetime Plan is a one-time payment with no recurring fees.</p>
+
+                <h3>5. Termination</h3>
+                <p>We may suspend or terminate your account for violating these terms, with notice provided via email or through the platform.</p>
+
+                <h3>6. Limitation of Liability</h3>
+                <p>SundaySoul is not liable for indirect damages arising from your use of the platform. Our services are provided “as is” without warranties.</p>
+
+                <h3>7. Contact Us</h3>
+                <p>For questions about these terms, contact us at <a href="mailto:support@sundaysoul.app">support@sundaysoul.app</a>.</p>
+            </div>
+        </section>
+    </main>
+    <footer>
+        <div class="footer-container">
+            <div class="footer-column">
+                <h3><i class="fas fa-star mr-1"></i> Plans</h3>
+                <ul>
+                    <li><a href="plans.html" class="pi-link">Try 14-days free</a></li>
+                    <li><a href="plans.html">Our plans</a></li>
+                    <li><a href="coaching.html">Mental health coaching</a></li>
+                    <li><a href="family-plan.html">Family plan</a></li>
+                    <li><a href="refer.html">Refer & Earn</a></li>
+                    <li><a href="redeem.html">Redeem a code</a></li>
+                    <li><a href="pi-signin.html" class="pi-link">Sign in with Pi</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h3><i class="fas fa-users mr-1"></i> Communities</h3>
+                <ul>
+                    <li><a href="communities.html">SundaySoul for communities</a></li>
+                    <li><a href="admin.html">Admin login</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h3><i class="fas fa-book mr-1"></i> Content</h3>
+                <ul>
+                    <li><a href="content.html">Our content</a></li>
+                    <li><a href="meditation.html">Meditation app</a></li>
+                    <li><a href="meditation-guides.html">Meditation guides</a></li>
+                    <li><a href="quick-meditations.html">Quick meditations</a></li>
+                    <li><a href="ebb-ai.html">Ebb AI sessions</a></li>
+                    <li><a href="sleep.html">Sleep app</a></li>
+                    <li><a href="sleep-stories.html">Sleep stories</a></li>
+                    <li><a href="calming-sounds.html">Calming sounds</a></li>
+                    <li><a href="mindfulness.html">Mindfulness app</a></li>
+                    <li><a href="mindfulness-tips.html">Mindfulness tips</a></li>
+                    <li><a href="mental-wellness.html">Mental wellness</a></li>
+                    <li><a href="guides.html">Browse all guides</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h3><i class="fas fa-info-circle mr-1"></i> About</h3>
+                <ul>
+                    <li><a href="about.html">About SundaySoul</a></li>
+                    <li><a href="app.html">About the app</a></li>
+                    <li><a href="mission.html">Our mission</a></li>
+                    <li><a href="press.html">Press</a></li>
+                    <li><a href="careers.html">Careers</a></li>
+                    <li><a href="sitemap.html">Sitemap</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h3><i class="fas fa-question-circle mr-1"></i> Support</h3>
+                <ul>
+                    <li><a href="help.html">Help center</a></li>
+                    <li><a href="contact.html">Contact us</a></li>
+                    <li><a href="resources.html">Mental health resources</a></li>
+                    <li><a href="accessibility.html">Accessibility</a></li>
+                    <li><a href="privacy.html">Privacy policy</a></li>
+                    <li><a href="security.html">Security</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h3><i class="fas fa-globe mr-1"></i> Connect</h3>
+                <ul>
+                    <li><a href="https://minepi.com" class="pi-link">Pi Network</a></li>
+                    <li><a href="#twitter">Twitter</a></li>
+                    <li><a href="#discord">Discord</a></li>
+                </ul>
+                <form class="newsletter-form" onsubmit="handleNewsletterSubmit(event)">
+                    <label for="newsletter-email" class="sr-only">Email for newsletter</label>
+                    <input type="email" id="newsletter-email" placeholder="Enter your email" required aria-label="Email for newsletter">
+                    <button type="submit" class="btn" aria-label="Subscribe to newsletter">Stay in touch</button>
+                </form>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© <span id="copyright-year"></span> SundaySoul. All rights reserved.</p>
+        </div>
+    </footer>
+    <script>
+        if ('serviceWorker' in navigator) {
+            navigator.serviceWorker.register('/service-worker.js').catch(err => {
+                console.error('Service Worker registration failed:', err);
+                showError('Offline support unavailable.');
+            });
+        }
+    </script>
+    <script type="module">
+        import { displayFunFact } from './funFacts.js';
+        document.addEventListener('DOMContentLoaded', () => {
+            document.getElementById('copyright-year').textContent = new Date().getFullYear();
+            checkOnlineStatus();
+            displayFunFact('fun-fact', { forceNew: false });
+        });
+        const hamburger = document.querySelector('.hamburger');
+        const navMenu = document.querySelector('.nav-menu');
+        hamburger.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+            hamburger.innerHTML = navMenu.classList.contains('active') ? '<i class="fas fa-times"></i>' : '<i class="fas fa-bars"></i>';
+            hamburger.setAttribute('aria-expanded', navMenu.classList.contains('active'));
+        });
+        function showError(message) {
+            const errorDiv = document.getElementById('error-message');
+            errorDiv.textContent = message;
+            errorDiv.style.display = 'block';
+            setTimeout(() => errorDiv.style.display = 'none', 3000);
+        }
+        function checkOnlineStatus() {
+            if (!navigator.onLine) {
+                showError('You are offline. Some features may be unavailable.');
+            }
+        }
+        window.addEventListener('online', checkOnlineStatus);
+        window.addEventListener('offline', checkOnlineStatus);
+        document.querySelectorAll('.pi-signin').forEach(btn => {
+            btn.addEventListener('click', async () => {
+                try {
+                    console.log('Initiating Pi Network login...');
+                    showError('Redirecting to Pi Wallet (placeholder)');
+                } catch (err) {
+                    showError('Failed to connect with Pi Network. Try again.');
+                }
+            });
+        });
+        function switchLanguage(lang) {
+            console.log(`Switching to language: ${lang}`);
+            showError(`Language switched to ${lang} (placeholder)`);
+        }
+        function handleNewsletterSubmit(event) {
+            event.preventDefault();
+            const email = document.getElementById('newsletter-email').value;
+            console.log(`Newsletter signup: ${email}`);
+            showError('Thank you for subscribing! (placeholder)');
+            event.target.reset();
+        }
+    </script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-XXXXX-X"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'UA-XXXXX-X');
+    </script>
+</body>
+</html>
