@@ -30,6 +30,18 @@ const funFacts = [
     "Fun fact: Setting small goals gives a sense of achievement!",
     "Fun fact: Positive self-talk can improve confidence over time!",
     "Fun fact: Coloring or doodling can lower cortisol levels!"
+    "Fun fact: People feeling lonely often need a hug!",
+    "Fun fact: Smiling, even when forced, can lift your mood!",
+    "Fun fact: A 5-minute meditation can reduce stress instantly!",
+    "Fun fact: Listening to music can ease anxiety in minutes!",
+    "Fun fact: Deep breathing lowers your heart rate and calms your mind!",
+    "Fun fact: Sharing a kind word can spark someone’s hope!",
+    "Fun fact: Nature walks boost your mood and creativity!",
+    "Fun fact: Journaling daily helps process emotions better!",
+    "Fun fact: A good night’s sleep improves emotional resilience!",
+    "Fun fact: Connecting with others reduces feelings of loneliness!",
+    "Fun fact: Gratitude lists can shift your mindset to joy!",
+    "Fun fact: Laughter releases feel-good chemicals in your brain!"
 ];
 
 function displayFunFact(elementId) {
