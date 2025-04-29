@@ -18,6 +18,9 @@
     <link rel="icon" href="/favicon.ico" type="image/x-icon" />
     <link rel="apple-touch-icon" href="/icon-192.png" />
     <title>SundaySoul - Choose Your Plan</title>
+    <script src="https://sdk.minepi.com/pi-sdk.js"></script>
+    <script> Pi.init({ version: "2.0", sandbox: true }) </script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Poppins:wght@600;700&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" media="print" onload="this.media='all'" />
@@ -33,7 +36,6 @@
             --hover-bg: #D6EAF8;
             --shadow: 0 6px 14px rgba(0, 0, 0, 0.08);
             --error: #FF7675;
-            /* SmartSolve colors for plan cards */
             --plan-primary: #A3CFFA;
             --plan-secondary: #A8D5BA;
             --plan-gradient: linear-gradient(45deg, #A3CFFA, #A8D5BA);
@@ -150,6 +152,10 @@
         .nav-menu a:focus {
             color: var(--primary);
         }
+        .nav-menu a.active {
+            color: var(--primary);
+            border-bottom: 2px solid var(--primary);
+        }
         .language-switcher {
             background: none;
             border: 1px solid var(--text);
@@ -259,7 +265,6 @@
             font-size: 0.9rem;
             max-width: 90%;
         }
-        /* SmartSolve-inspired plan card styles */
         .pricing-container {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -493,6 +498,13 @@
             font-size: 0.85rem;
             opacity: 0.8;
         }
+        .reveal {
+            animation: revealCard 0.5s ease-out;
+        }
+        @keyframes revealCard {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
         @media (max-width: 768px) {
             .nav-menu {
                 display: none;
@@ -566,7 +578,7 @@
         <nav class="nav-menu">
             <a href="index.html#stories">Stories</a>
             <a href="index.html#features">Features</a>
-            <a href="plans.html">Plans</a>
+            <a href="plans.html" class="active">Plans</a>
             <a href="#pi-signin" class="pi-signin">Sign in with Pi</a>
             <select class="language-switcher" aria-label="Select language" onchange="switchLanguage(this.value)">
                 <option value="en">English</option>
@@ -584,13 +596,13 @@
                 <div class="fun-fact-card">
                     <p id="fun-fact" aria-live="polite">Loading your fun fact...</p>
                 </div>
-                <a href="#plans" class="btn pulse mt-4 flex items-center justify-center mx-auto" aria-label="Explore plans">
+                <a href="#plans" class="btn mt-4 flex items-center justify-center mx-auto" aria-label="Explore plans">
                     <i class="fas fa-coins mr-2"></i> Explore Plans
                 </a>
             </div>
         </section>
         <section id="plans" class="section bg-[var(--card-bg)]">
-            <div class="text-center bg-[var(--primary)] text-white py-2 px-4 mx-auto max-w-3xl rounded-xl mb-4">
+            <div id="lifetime-banner" class="text-center bg-[var(--primary)] text-white py-2 px-4 mx-auto max-w-3xl rounded-xl mb-4">
                 <p>Lifetime Access for 99 Pi! Pay once, enjoy forever. Only a few spots left!</p>
             </div>
             <h2>Choose Your Path to Peace</h2>
@@ -608,7 +620,7 @@
                         <li><i class="fas fa-check"></i>Access to Weekly Community Events</li>
                         <li><i class="fas fa-check"></i>Pi Community Forum Access</li>
                     </ul>
-                    <button class="btn" id="free-plan-btn" aria-label="Select Free Plan">Get Started</button>
+                    <button class="btn" data-plan="free" data-amount="0" aria-label="Select Free Plan">Get Started</button>
                 </div>
                 <!-- Standard Plan -->
                 <div class="card">
@@ -622,7 +634,7 @@
                         <li><i class="fas fa-check"></i>Personalized Meditation Recommendations</li>
                         <li><i class="fas fa-check"></i>Offline Meditation Downloads</li>
                     </ul>
-                    <button class="btn" id="standard-plan-btn" aria-label="Select Standard Plan">Choose Standard</button>
+                    <button class="btn" data-plan="standard" data-amount="3" aria-label="Select Standard Plan">Choose Standard</button>
                 </div>
                 <!-- Premium Plan -->
                 <div class="card">
@@ -636,7 +648,7 @@
                         <li><i class="fas fa-check"></i>Guided Group Meditations for Families</li>
                         <li><i class="fas fa-check"></i>Enhanced Privacy Controls</li>
                     </ul>
-                    <button class="btn" id="premium-plan-btn" aria-label="Select Premium Plan">Choose Premium</button>
+                    <button class="btn" data-plan="premium" data-amount="6" aria-label="Select Premium Plan">Choose Premium</button>
                 </div>
                 <!-- Pro Plan -->
                 <div class="card">
@@ -650,7 +662,7 @@
                         <li><i class="fas fa-check"></i>Advanced Mindfulness Analytics</li>
                         <li><i class="fas fa-check"></i>Ebb AI Virtual Assistant (10 sessions/day)</li>
                     </ul>
-                    <button class="btn" id="pro-plan-btn" aria-label="Select Pro Plan">Choose Pro</button>
+                    <button class="btn" data-plan="pro" data-amount="9" aria-label="Select Pro Plan">Choose Pro</button>
                 </div>
                 <!-- Lifetime Plan -->
                 <div class="card lifetime">
@@ -667,8 +679,8 @@
                         <li><i class="fas fa-check"></i>✅ Monthly Expert Webinars</li>
                         <li><i class="fas fa-check"></i>✅ Beta Tester for Future Apps</li>
                     </ul>
-                    <button class="btn lifetime" id="lifetime-plan-btn" aria-label="Select Lifetime Plan">Get Lifetime Now</button>
-                    <div class="countdown">⏰ Only a few accounts left!</div>
+                    <button class="btn lifetime" data-plan="lifetime" data-amount="99" data-onetime="true" aria-label="Select Lifetime Plan">Get Lifetime Now</button>
+                    <div class="countdown" id="lifetime-countdown">⏰ Loading availability...</div>
                 </div>
             </div>
             <div class="terms-card">
@@ -738,6 +750,7 @@
                     <li><a href="resources.html">Mental health resources</a></li>
                     <li><a href="accessibility.html">Accessibility</a></li>
                     <li><a href="privacy.html">Privacy policy</a></li>
+                    <li><a href="terms.html">Terms of service</a></li>
                     <li><a href="security.html">Security</a></li>
                 </ul>
             </div>
@@ -777,13 +790,18 @@
     </script>
     <script type="module">
         import { displayFunFact } from './funFacts.js';
+        let userId = null;
+
         document.addEventListener('DOMContentLoaded', () => {
             document.getElementById('copyright-year').textContent = new Date().getFullYear();
             checkOnlineStatus();
             displayFunFact('fun-fact');
             updateLifetimeAvailability();
             revealCards();
+            authenticateUser();
         });
+
+        // Hamburger Menu
         const hamburger = document.querySelector('.hamburger');
         const navMenu = document.querySelector('.nav-menu');
         hamburger.addEventListener('click', () => {
@@ -791,12 +809,16 @@
             hamburger.innerHTML = navMenu.classList.contains('active') ? '<i class="fas fa-times"></i>' : '<i class="fas fa-bars"></i>';
             hamburger.setAttribute('aria-expanded', navMenu.classList.contains('active'));
         });
+
+        // Error Handling
         function showError(message) {
             const errorDiv = document.getElementById('error-message');
             errorDiv.textContent = message;
             errorDiv.style.display = 'block';
             setTimeout(() => errorDiv.style.display = 'none', 3000);
         }
+
+        // Online Status
         function checkOnlineStatus() {
             if (!navigator.onLine) {
                 showError('You are offline. Some features may be unavailable.');
@@ -804,20 +826,101 @@
         }
         window.addEventListener('online', checkOnlineStatus);
         window.addEventListener('offline', checkOnlineStatus);
-        document.querySelectorAll('.pi-signin').forEach(btn => {
-            btn.addEventListener('click', async () => {
+
+        // Pi Network Authentication
+        const scopes = ['payments', 'username'];
+        function onIncompletePaymentFound(payment) {
+            console.log('Incomplete payment found:', payment);
+            $.post('/payment/complete', {
+                paymentId: payment.identifier,
+                txid: payment.transaction.txid,
+                debug: 'cancel'
+            });
+        }
+        async function authenticateUser() {
+            try {
+                const auth = await Pi.authenticate(scopes, onIncompletePaymentFound);
+                console.log(`Authenticated! Username: ${auth.user.username}`);
+                userId = auth.user.uid;
+                showError(`Welcome, ${auth.user.username}!`);
+            } catch (error) {
+                console.error('Authentication error:', error);
+                showError('Please sign in with Pi to proceed.');
+                document.querySelectorAll('.btn[data-plan]').forEach(btn => {
+                    btn.disabled = true;
+                    btn.classList.add('disabled');
+                });
+            }
+        }
+
+        // Pi Network Payment
+        document.querySelectorAll('.btn[data-plan]').forEach(button => {
+            button.addEventListener('click', async () => {
+                if (!userId) {
+                    showError('Please sign in with Pi to make a payment.');
+                    return;
+                }
+                const plan = button.dataset.plan;
+                const amount = parseFloat(button.dataset.amount);
+                const isOneTime = button.dataset.onetime === 'true';
+                const paymentData = {
+                    amount: amount,
+                    memo: `Subscription to SundaySoul ${plan} plan${isOneTime ? ' (one-time)' : ''}`,
+                    metadata: { plan: plan, userId: userId, isOneTime: isOneTime }
+                };
+                const paymentCallbacks = {
+                    onReadyForServerApproval(paymentId) {
+                        console.log('Payment ready for approval:', paymentId);
+                        $.post('/payment/approve', { paymentId })
+                            .done(() => console.log('Approval request sent'))
+                            .fail(err => {
+                                console.error('Approval failed:', err);
+                                showError('Payment approval failed.');
+                            });
+                    },
+                    onReadyForServerCompletion(paymentId, txid) {
+                        console.log('Payment ready for completion:', paymentId, txid);
+                        $.post('/payment/complete', { paymentId, txid })
+                            .done(() => {
+                                console.log('Payment completed');
+                                showError(`Successfully subscribed to ${plan} plan!`);
+                                gtag('event', 'purchase', { event_category: 'Plan Subscription', event_label: plan, value: amount });
+                            })
+                            .fail(err => {
+                                console.error('Completion failed:', err);
+                                showError('Payment completion failed.');
+                            });
+                    },
+                    onCancel(paymentId) {
+                        console.log('Payment cancelled:', paymentId);
+                        showError('Payment was cancelled.');
+                        gtag('event', 'cancel_payment', { event_category: 'Plan Subscription', event_label: plan });
+                    },
+                    onError(error) {
+                        console.error('Payment error:', error);
+                        showError('An error occurred during payment.');
+                        gtag('event', 'error_payment', { event_category: 'Plan Subscription', event_label: plan });
+                    }
+                };
                 try {
-                    console.log('Initiating Pi Network login...');
-                    showError('Redirecting to Pi Wallet (placeholder)');
-                } catch (err) {
-                    showError('Failed to connect with Pi Network. Try again.');
+                    const payment = await Pi.createPayment(paymentData, paymentCallbacks);
+                    console.log('Payment initiated:', payment);
+                    gtag('event', 'initiate_payment', { event_category: 'Plan Subscription', event_label: plan, value: amount });
+                } catch (error) {
+                    console.error('Payment initiation error:', error);
+                    showError('Failed to initiate payment.');
+                    gtag('event', 'error_payment', { event_category: 'Plan Subscription', event_label: plan });
                 }
             });
         });
+
+        // Language Switcher
         function switchLanguage(lang) {
             console.log(`Switching to language: ${lang}`);
             showError(`Language switched to ${lang} (placeholder)`);
         }
+
+        // Newsletter Signup
         function handleNewsletterSubmit(event) {
             event.preventDefault();
             const email = document.getElementById('newsletter-email').value;
@@ -825,33 +928,42 @@
             showError('Thank you for subscribing! (placeholder)');
             event.target.reset();
         }
+
+        // Referral Modal
         function copyReferral() {
             const input = document.querySelector('#referral-modal input');
             input.select();
             document.execCommand('copy');
             showError('Referral link copied!');
         }
-        document.querySelector('a[href="#refer"]').addEventListener('click', () => {
+        document.querySelector('a[href="#refer"]').addEventListener('click', (e) => {
+            e.preventDefault();
             document.getElementById('referral-modal').classList.remove('hidden');
         });
-        function updateLifetimeAvailability() {
-            const availabilityText = document.querySelector('.card p.text-[var(--error)]') || document.querySelector('.countdown');
-            let accountsLeft = parseInt(localStorage.getItem('accountsLeft') || '5');
-            if (availabilityText) {
-                if (accountsLeft > 0) {
-                    availabilityText.textContent = `⏰ Only ${accountsLeft} accounts left!`;
-                    setTimeout(() => {
-                        accountsLeft--;
-                        localStorage.setItem('accountsLeft', accountsLeft);
-                        updateLifetimeAvailability();
-                    }, 24 * 60 * 60 * 1000);
+
+        // Lifetime Plan Availability
+        async function updateLifetimeAvailability() {
+            const countdown = document.getElementById('lifetime-countdown');
+            const lifetimeBtn = document.querySelector('.btn[data-plan="lifetime"]');
+            try {
+                const response = await fetch('/api/lifetime-availability');
+                const data = await response.json();
+                if (data.accountsLeft > 0) {
+                    countdown.textContent = `⏰ Only ${data.accountsLeft} accounts left!`;
+                    document.getElementById('lifetime-banner').style.display = 'block';
                 } else {
-                    availabilityText.textContent = 'Lifetime plan sold out!';
-                    document.querySelector('.card.lifetime .btn').disabled = true;
-                    document.querySelector('.card.lifetime .btn').classList.add('disabled');
+                    countdown.textContent = 'Lifetime plan sold out!';
+                    lifetimeBtn.disabled = true;
+                    lifetimeBtn.classList.add('disabled');
+                    document.getElementById('lifetime-banner').style.display = 'none';
                 }
+            } catch (error) {
+                console.error('Error fetching lifetime availability:', error);
+                countdown.textContent = '⏰ Checking availability...';
             }
         }
+
+        // Card Animation
         function revealCards() {
             const cards = document.querySelectorAll('.card');
             const observer = new IntersectionObserver((entries) => {
@@ -864,33 +976,14 @@
             }, { threshold: 0.2 });
             cards.forEach(card => observer.observe(card));
         }
-        // SmartSolve-inspired plan selection
-        const handlePlanSelection = (plan, amount, isOneTime = false) => {
-            console.log(`Selected ${plan} plan${isOneTime ? ' (one-time)' : ''}, amount: ${amount} Pi`);
-            showError(`Redirecting to Pi Wallet for ${plan} plan (placeholder)`);
-            window.location.href = 'signin.html'; // Fallback redirect
-        };
-        const buttons = [
-            { id: 'free-plan-btn', plan: 'Free', amount: 0 },
-            { id: 'standard-plan-btn', plan: 'Standard', amount: 3 },
-            { id: 'premium-plan-btn', plan: 'Premium', amount: 6 },
-            { id: 'pro-plan-btn', plan: 'Pro', amount: 9 },
-            { id: 'lifetime-plan-btn', plan: 'Lifetime', amount: 99, isOneTime: true }
-        ];
-        buttons.forEach(({ id, plan, amount, isOneTime }) => {
-            const button = document.getElementById(id);
-            if (button) {
-                button.addEventListener('click', () => handlePlanSelection(plan, amount, isOneTime));
-            } else {
-                console.warn(`Button with ID ${id} not found.`);
-            }
-        });
+
+        // Notifications
         function promptNotifications() {
             if ('Notification' in window && Notification.permission !== 'denied') {
                 Notification.requestPermission().then(permission => {
                     if (permission === 'granted') {
                         new Notification('Welcome to SundaySoul Plans!', {
-                            body: 'Choose your mindfulness plan today. Only 5 Lifetime plans left!',
+                            body: 'Choose your mindfulness plan today. Limited Lifetime plans available!',
                             icon: '/sundaysoul-logo.webp'
                         });
                     }
@@ -905,11 +998,6 @@
         function gtag(){dataLayer.push(arguments);}
         gtag('js', new Date());
         gtag('config', 'UA-XXXXX-X');
-        document.querySelectorAll('.btn').forEach(btn => {
-            btn.addEventListener('click', () => {
-                gtag('event', 'click', { event_category: 'Button CTA', event_label: btn.textContent });
-            });
-        });
     </script>
 </body>
 </html>
