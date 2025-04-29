@@ -1,0 +1,20 @@
+sundaysoul-backend/
+├── config/
+│   └── database.js        # MongoDB connection
+├── models/
+│   ├── Subscription.js    # Subscription schema
+│   ├── PaymentLog.js      # Payment log schema
+│   └── Config.js          # Configuration schema (e.g., lifetime plan availability)
+├── routes/
+│   ├── payments.js        # Payment routes (/payments/approve, /payments/complete)
+│   └── api.js             # API routes (/api/lifetime-availability)
+├── middleware/
+│   ├── validate.js        # Input validation middleware
+│   └── rateLimit.js       # Rate limiting middleware
+├── utils/
+│   ├── axiosClient.js     # Axios client for Pi API
+│   └── logger.js          # Logging utility
+├── .env                   # Environment variables
+├── package.json           # Dependencies and scripts
+├── server.js              # Main server file
+└── README.md              # Project documentation
